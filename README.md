@@ -1,6 +1,6 @@
 # Northbricks API Documentation
 
-This is Northbricks website for developers.
+This is [Northbricks website for developers](http://www.northbricks.io).
 
 The website contains both static content and content generated from the Swagger specificationsof the REST API. See [update swagger spec](#update-swagger-spec) to see how to update the generated content.
 
