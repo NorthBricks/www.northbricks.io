@@ -6,12 +6,6 @@ The website contains both static content and content generated from the Swagger 
 
 ## Run local server
 
-Install widdershins.
-```sh
-npm install -g widdershins
-npm install widdershins
-```
-
 Start local server.
 ```sh
 bundle exec middleman server
@@ -25,6 +19,12 @@ Deploy to production.
 ```
 
 ## Update swagger spec
+
+Install widdershins.
+```sh
+npm install -g widdershins
+npm install widdershins
+```
 
 Copy latest swagger files to `source/swagger/` and name them `[service-name].swagger.yaml`.
 
