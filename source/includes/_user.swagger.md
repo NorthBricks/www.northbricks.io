@@ -2,19 +2,19 @@
 
 User operations
 
-## POST /me/user
+## GET /me/user
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X POST https://api.northbricks.io//me/user \
+curl -X GET https://api.northbricks.io/api/v1/me/user \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-POST https://api.northbricks.io//me/user HTTP/1.1
+GET https://api.northbricks.io/api/v1/me/user HTTP/1.1
 Host: api.northbricks.io
 
 Accept: application/json
@@ -28,8 +28,8 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io//me/user',
-  method: 'post',
+  url: 'https://api.northbricks.io/api/v1/me/user',
+  method: 'get',
 
   headers: headers,
   success: function(data) {
@@ -46,9 +46,9 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io//me/user',
+fetch('https://api.northbricks.io/api/v1/me/user',
 {
-  method: 'POST',
+  method: 'GET',
 
   headers: headers
 })
@@ -67,7 +67,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.post 'https://api.northbricks.io//me/user',
+result = RestClient.get 'https://api.northbricks.io/api/v1/me/user',
   params: {
   }, headers: headers
 
@@ -81,7 +81,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.post('https://api.northbricks.io//me/user', params={
+r = requests.get('https://api.northbricks.io/api/v1/me/user', params={
 
 }, headers = headers)
 
@@ -89,9 +89,9 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io//me/user");
+URL obj = new URL("https://api.northbricks.io/api/v1/me/user");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-con.setRequestMethod("POST");
+con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
 BufferedReader in = new BufferedReader(
     new InputStreamReader(con.getInputStream()));

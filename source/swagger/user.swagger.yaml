@@ -3,6 +3,7 @@ info:
   version: "1.0.0-SNAPSHOT"
   title: "Northbricks User API"
 host: "api.northbricks.io"
+basePath: "/api/v1"
 tags:
 - name: "user"
   description: "User operations"
@@ -10,7 +11,7 @@ schemes:
 - "https"
 paths:
   /me/user:
-    post:
+    get:
       tags:
       - "user"
       summary: "Information about current user"
