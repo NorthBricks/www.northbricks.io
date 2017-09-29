@@ -1,0 +1,46 @@
+swagger: "2.0"
+info:
+  version: "1.0.0-SNAPSHOT"
+  title: "Northbricks User API"
+host: "api.northbricks.io"
+tags:
+- name: "user"
+  description: "User operations"
+schemes:
+- "https"
+paths:
+  /me/user:
+    post:
+      tags:
+      - "user"
+      summary: "Information about current user"
+      description: "Returns user information"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "User information"
+          schema:
+            $ref: "#/definitions/User"
+        401:
+          description: "Wrong credentials"
+      security:
+      - api_key: []
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      username:
+        type: "string"
+      oauth2Scope:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      phone:
+        type: "string"
