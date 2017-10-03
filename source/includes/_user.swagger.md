@@ -1,3 +1,24 @@
+# Authentication
+
+
+
+
+
+- oAuth2 authentication. This API uses OAuth 2 with the authorization code flow.
+
+    - Flow: authorizationCode
+    - Authorization URL = [https://api.northbricks.io/oauth/authorize](https://api.northbricks.io/oauth/authorize)
+    - Token URL = [https://api.northbricks.io/oauth/token](https://api.northbricks.io/oauth/token)
+
+|Scope|Scope Description|
+|---|---|
+|read|Grants read access|
+
+
+
+
+
+
 # user
 
 User operations
@@ -130,7 +151,7 @@ Status|Meaning|Description|Schema
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-None
+oauth2 ( Scopes: read )
 </aside>
 
 
