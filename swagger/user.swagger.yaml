@@ -26,7 +26,8 @@ paths:
         401:
           description: "Wrong credentials"
       security:
-      - api_key: []
+        - OAuth2:
+          - read
 definitions:
   User:
     type: "object"
@@ -45,3 +46,13 @@ definitions:
         type: "string"
       phone:
         type: "string"
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    flow: implicit
+    description: This API uses OAuth 2 with the authorization code flow.
+    flow: accessCode
+    authorizationUrl: https://api.northbricks.io/oauth/authorize
+    tokenUrl: https://api.northbricks.io/oauth/token
+    scopes:
+      read: Grants read access
