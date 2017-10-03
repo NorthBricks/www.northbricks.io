@@ -1,8 +1,9 @@
-# Northbricks API Documentation
+# Northbricks API Documentation website
+[![Build Status](https://travis-ci.org/NorthBricks/www.northbricks.com.svg)](https://travis-ci.org/NorthBricks/www.northbricks.com)
 
 This is [Northbricks website for developers](http://www.northbricks.io).
 
-The website contains both static content and content generated from the Swagger specificationsof the REST API. See [update swagger spec](#update-swagger-spec) to see how to update the generated content.
+The website contains both static content and content generated from the Swagger specifications of the REST API. See [update swagger spec](#update-swagger-spec) to see how to update the generated content.
 
 ## Run local server
 
