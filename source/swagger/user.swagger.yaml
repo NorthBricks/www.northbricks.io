@@ -49,7 +49,6 @@ definitions:
 securityDefinitions:
   OAuth2:
     type: oauth2
-    flow: implicit
     description: This API uses OAuth 2 with the authorization code flow.
     flow: accessCode
     authorizationUrl: https://api.northbricks.io/oauth/authorize
