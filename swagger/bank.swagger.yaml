@@ -1,0 +1,79 @@
+swagger: "2.0"
+info:
+  version: "1.0.0-SNAPSHOT"
+  title: "Northbricks Bank API"
+host: "api.northbricks.io"
+basePath: "/api/v1"
+tags:
+- name: "bank"
+  description: "Bank operations"
+schemes:
+- "https"
+paths:
+  /banks:
+    get:
+      tags:
+      - "bank"
+      summary: "Information about banks"
+      description: "Returns available banks"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Available banks"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Bank"
+        401:
+          description: "Wrong credentials"
+      security:
+        - OAuth2:
+          - read
+  /banks/{bankId}:
+    get:
+      tags:
+      - "bank"
+      summary: "Information about banks"
+      description: "Returns available banks"
+      produces:
+      - "application/json"
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank to get.
+      responses:
+        200:
+          description: "Available banks"
+          schema:
+            $ref: "#/definitions/Bank"
+        401:
+          description: "Wrong credentials"
+      security:
+        - OAuth2:
+          - read
+definitions:
+  Bank:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      shortName:
+        type: "string"
+      fullName:
+        type: "string"
+      logo:
+        type: "string"
+      website:
+        type: "string"
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    description: This API uses OAuth 2 with the authorization code flow.
+    flow: accessCode
+    authorizationUrl: https://api.northbricks.io/oauth/authorize
+    tokenUrl: https://api.northbricks.io/oauth/token
+    scopes:
+      read: Grants read access
