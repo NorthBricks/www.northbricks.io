@@ -13,6 +13,8 @@
 |Scope|Scope Description|
 |---|---|
 |read|Grants read access|
+|account:read|Grants read access to accounts|
+|transaction:read|Grants read access to transactions|
 
 
 

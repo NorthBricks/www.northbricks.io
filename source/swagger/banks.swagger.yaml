@@ -1,43 +1,43 @@
 swagger: "2.0"
 info:
-  version: "1.0.0-SNAPSHOT"
-  title: "Northbricks Bank API"
-host: "api.northbricks.io"
-basePath: "/api/v1"
+  version: 1.0.0-SNAPSHOT
+  title: Northbricks Bank API
+host: api.northbricks.io
+basePath: /api/v1
 tags:
-- name: "bank"
-  description: "Bank operations"
+- name: banks
+  description: Bank operations
 schemes:
-- "https"
+- https
 paths:
   /banks:
     get:
       tags:
-      - "bank"
-      summary: "Information about banks"
-      description: "Returns available banks"
+      - banks
+      summary: Information about banks
+      description: Returns available banks
       produces:
-      - "application/json"
+      - application/json
       responses:
         200:
-          description: "Available banks"
+          description: Available banks
           schema:
             type: array
             items:
               $ref: "#/definitions/Bank"
         401:
-          description: "Wrong credentials"
+          description: Wrong credentials
       security:
         - OAuth2:
           - read
   /banks/{bankId}:
     get:
       tags:
-      - "bank"
-      summary: "Information about banks"
-      description: "Returns available banks"
+      - banks
+      summary: Information about banks
+      description: Returns available banks
       produces:
-      - "application/json"
+      - application/json
       parameters:
         - in: path
           name: bankId
@@ -46,28 +46,28 @@ paths:
           description: Id of the bank to get.
       responses:
         200:
-          description: "Available banks"
+          description: Available banks
           schema:
             $ref: "#/definitions/Bank"
         401:
-          description: "Wrong credentials"
+          description: Wrong credentials
       security:
         - OAuth2:
           - read
 definitions:
   Bank:
-    type: "object"
+    type: object
     properties:
       id:
-        type: "string"
+        type: string
       shortName:
-        type: "string"
+        type: string
       fullName:
-        type: "string"
+        type: string
       logo:
-        type: "string"
+        type: string
       website:
-        type: "string"
+        type: string
 securityDefinitions:
   OAuth2:
     type: oauth2

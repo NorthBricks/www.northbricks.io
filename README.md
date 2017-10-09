@@ -32,8 +32,9 @@ Copy latest swagger files to `source/swagger/` and name them `[service-name].swa
 Generate documentation from swagger files with `widdershins`.
 ```sh
 node node_modules/widdershins/widdershins.js -y -n -s source/swagger/user.swagger.yaml -o source/includes/_user.swagger.md
-node node_modules/widdershins/widdershins.js -y -n -s source/swagger/bank.swagger.yaml -o source/includes/_bank.swagger.md
-node node_modules/widdershins/widdershins.js -y -n -s source/swagger/transaction.swagger.yaml -o source/includes/_transaction.swagger.md
+node node_modules/widdershins/widdershins.js -y -n -s source/swagger/banks.swagger.yaml -o source/includes/_banks.swagger.md
+node node_modules/widdershins/widdershins.js -y -n -s source/swagger/accounts.swagger.yaml -o source/includes/_accounts.swagger.md
+node node_modules/widdershins/widdershins.js -y -n -s source/swagger/transactions.swagger.yaml -o source/includes/_transactions.swagger.md
 ```
 
 Now remove the first section in the generated file(s).

@@ -12,7 +12,9 @@ language_tabs:
 
 includes:
   - user.swagger
-  - bank.swagger
+  - banks.swagger
+  - accounts.swagger
+  - transactions.swagger
 
 search: true
 ---

@@ -1,20 +1,20 @@
-# bank
+# accounts
 
-Bank operations
+Account operations
 
-## GET /banks
+## GET /banks/{bankId}/accounts
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts HTTP/1.1
 Host: api.northbricks.io
 
 Accept: application/json
@@ -28,7 +28,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks',
+  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
   method: 'get',
 
   headers: headers,
@@ -46,7 +46,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks',
+fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
 {
   method: 'GET',
 
@@ -67,7 +67,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
   params: {
   }, headers: headers
 
@@ -81,7 +81,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts', params={
 
 }, headers = headers)
 
@@ -89,7 +89,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -104,9 +104,17 @@ in.close();
 System.out.println(response.toString());
 ```
 
-*Information about banks*
+*Information about accounts*
 
-Returns available banks
+Returns accounts in a bank for the user
+
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+bankId|path|string|true|Id of the bank.
+
+
 
 > Example responses
 
@@ -114,10 +122,10 @@ Returns available banks
 [
   {
     "id": "string",
-    "shortName": "string",
-    "fullName": "string",
-    "logo": "string",
-    "website": "string"
+    "iban": "string",
+    "owner": {
+      "name": "string"
+    }
   }
 ]
 ```
@@ -125,28 +133,27 @@ Returns available banks
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Available banks|Inline
-401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accounts in the bank|Inline
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: read )
+oauth2 ( Scopes: account:read )
 </aside>
 
 
-## GET /banks/{bankId}
+## GET /banks/{bankId}/accounts/{accountId}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId} \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId} \
   -H 'Accept: application/json'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId} HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId} HTTP/1.1
 Host: api.northbricks.io
 
 Accept: application/json
@@ -160,7 +167,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}',
+  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
   method: 'get',
 
   headers: headers,
@@ -178,7 +185,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}',
+fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
 {
   method: 'GET',
 
@@ -199,7 +206,7 @@ headers = {
   'Accept' => 'application/json'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
   params: {
   }, headers: headers
 
@@ -213,7 +220,7 @@ headers = {
   'Accept': 'application/json'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}', params={
 
 }, headers = headers)
 
@@ -221,7 +228,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -236,15 +243,16 @@ in.close();
 System.out.println(response.toString());
 ```
 
-*Information about banks*
+*Information about an account*
 
-Returns available banks
+Returns the account
 
 ### Parameters
 
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
-bankId|path|string|true|Id of the bank to get.
+bankId|path|string|true|Id of the bank.
+accountId|path|string|true|Id of the account.
 
 
 
@@ -253,22 +261,21 @@ bankId|path|string|true|Id of the bank to get.
 ```json
 {
   "id": "string",
-  "shortName": "string",
-  "fullName": "string",
-  "logo": "string",
-  "website": "string"
+  "iban": "string",
+  "owner": {
+    "name": "string"
+  }
 }
 ```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Available banks|[Bank](#schemabank)
-401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The account|[Account](#schemaaccount)
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: read )
+oauth2 ( Scopes: account:read )
 </aside>
 
 
