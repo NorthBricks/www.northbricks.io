@@ -1,0 +1,85 @@
+swagger: "2.0"
+info:
+  version: 1.0.0-SNAPSHOT
+  title: Northbricks Account API
+host: api.northbricks.io
+basePath: /api/v1
+tags:
+- name: accounts
+  description: Account operations
+schemes:
+- https
+paths:
+  /banks/{bankId}/accounts:
+    get:
+      tags:
+      - accounts
+      summary: Information about accounts
+      description: Returns accounts in a bank for the user
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank.
+      responses:
+        200:
+          description: Accounts in the bank
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Account"
+      security:
+        - OAuth2:
+          - "account:read"
+  /banks/{bankId}/accounts/{accountId}:
+    get:
+      tags:
+      - accounts
+      summary: Information about an account
+      description: Returns the account
+      produces:
+      - application/json
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank.
+        - in: path
+          name: accountId
+          type: string
+          required: true
+          description: Id of the account.
+      responses:
+        200:
+          description: The account
+          schema:
+            $ref: "#/definitions/Account"
+      security:
+        - OAuth2:
+          - "account:read"
+definitions:
+  Account:
+    type: object
+    properties:
+      id:
+        type: string
+      iban:
+        type: string
+      owner:
+        type: object
+        properties:
+          name:
+            type: string
+securityDefinitions:
+  OAuth2:
+    type: oauth2
+    description: This API uses OAuth 2 with the authorization code flow.
+    flow: accessCode
+    authorizationUrl: https://api.northbricks.io/oauth/authorize
+    tokenUrl: https://api.northbricks.io/oauth/token
+    scopes:
+      "account:read": Grants read access
