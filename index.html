@@ -723,6 +723,12 @@ Accept: application/json
 <td><a href="#schemabank">Bank</a></td>
 </tr>
 <tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid bankId</td>
+<td>None</td>
+</tr>
+<tr>
 <td>401</td>
 <td><a href="https://tools.ietf.org/html/rfc7235#section-3.1">Unauthorized</a></td>
 <td>Wrong credentials</td>
@@ -950,19 +956,35 @@ Accept: application/json
 <p><em>Get current user bank</em></p>
 
 <p>Returns current user bank</p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bankId</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>Id of the bank to get.</td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Example responses</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='responses-4'>Responses</h3>
 <table><thead>
 <tr>
@@ -976,7 +998,13 @@ Accept: application/json
 <td>200</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
 <td>Current user bank</td>
-<td>Inline</td>
+<td><a href="#schemabank">Bank</a></td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid bankId</td>
+<td>None</td>
 </tr>
 <tr>
 <td>401</td>
@@ -1001,40 +1029,31 @@ oauth2 ( Scopes: read )
 <p>Code samples</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code><span class="c"># You can also use wget</span>
-curl -X POST https://api.northbricks.io/api/v1/me/banks/<span class="o">{</span>bankId<span class="o">}</span> <span class="se">\</span>
-  -H <span class="s1">'Accept: application/json'</span>
+curl -X POST https://api.northbricks.io/api/v1/me/banks/<span class="o">{</span>bankId<span class="o">}</span>
 
 </code></pre><pre class="highlight http tab-http"><code><span class="nf">POST</span> <span class="nn">https://api.northbricks.io/api/v1/me/banks/{bankId}</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">api.northbricks.io</span>
 
-Accept: application/json
 
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
 
-<span class="p">};</span>
-
+</code></pre><pre class="highlight javascript tab-javascript"><code>
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
   <span class="na">url</span><span class="p">:</span> <span class="s1">'https://api.northbricks.io/api/v1/me/banks/{bankId}'</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'post'</span><span class="p">,</span>
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+
   <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre><pre class="highlight javascript tab-javascript--nodejs"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'node-fetch'</span><span class="p">);</span>
 
-<span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span><span class="p">:</span><span class="s1">'application/json'</span>
-
-<span class="p">};</span>
 
 <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.northbricks.io/api/v1/me/banks/{bankId}'</span><span class="p">,</span>
 <span class="p">{</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
 
-  <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span>
+
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
@@ -1044,24 +1063,18 @@ Accept: application/json
 </code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">'Accept'</span> <span class="o">=&gt;</span> <span class="s1">'application/json'</span>
-<span class="p">}</span>
+
 
 <span class="n">result</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">post</span> <span class="s1">'https://api.northbricks.io/api/v1/me/banks/{bankId}'</span><span class="p">,</span>
   <span class="ss">params: </span><span class="p">{</span>
-  <span class="p">},</span> <span class="ss">headers: </span><span class="n">headers</span>
-
+  <span class="p">}</span>
 
 <span class="nb">p</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
-<span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://api.northbricks.io/api/v1/me/banks/{bankId}'</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span>
 
-<span class="p">},</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre><pre class="highlight java tab-java"><code><span class="n">URL</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">URL</span><span class="o">(</span><span class="s">"https://api.northbricks.io/api/v1/me/banks/{bankId}"</span><span class="o">);</span>
@@ -1081,20 +1094,25 @@ Accept: application/json
 <p><em>Adds bank to current user</em></p>
 
 <p>Adds the bank to current user</p>
-
-<blockquote>
-<p>Example responses</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"shortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fullName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='responses-5'>Responses</h3>
+<h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bankId</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>Id of the bank to add.</td>
+</tr>
+</tbody></table>
+<h3 id='responses-5'>Responses</h3>
 <table><thead>
 <tr>
 <th>Status</th>
@@ -1106,8 +1124,14 @@ Accept: application/json
 <tr>
 <td>201</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.2">Created</a></td>
-<td>Current user banks</td>
-<td>Inline</td>
+<td>Bank added to user</td>
+<td>None</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid request</td>
+<td>None</td>
 </tr>
 <tr>
 <td>401</td>
@@ -1126,6 +1150,24 @@ Accept: application/json
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.8">Conflict</a></td>
 <td>Current user already has the bank</td>
 <td>None</td>
+</tr>
+</tbody></table>
+<h3 id='response-headers'>Response Headers</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Header</th>
+<th>Type</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Location</td>
+<td>string</td>
+<td></td>
+<td>Location of the added bank,</td>
 </tr>
 </tbody></table>
 
@@ -1203,6 +1245,24 @@ curl -X DELETE https://api.northbricks.io/api/v1/me/banks/<span class="o">{</spa
 <p><em>Removes bank from current user</em></p>
 
 <p>Removes the bank from current user</p>
+<h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bankId</td>
+<td>path</td>
+<td>string</td>
+<td>true</td>
+<td>Id of the bank to delete.</td>
+</tr>
+</tbody></table>
 <h3 id='responses-6'>Responses</h3>
 <table><thead>
 <tr>
@@ -1216,6 +1276,12 @@ curl -X DELETE https://api.northbricks.io/api/v1/me/banks/<span class="o">{</spa
 <td>204</td>
 <td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.5">No Content</a></td>
 <td>Bank removed from user</td>
+<td>None</td>
+</tr>
+<tr>
+<td>400</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
+<td>Invalid bankId</td>
 <td>None</td>
 </tr>
 <tr>
