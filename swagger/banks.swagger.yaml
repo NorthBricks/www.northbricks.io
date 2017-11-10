@@ -34,8 +34,8 @@ paths:
     get:
       tags:
       - banks
-      summary: Information about banks
-      description: Returns available banks
+      summary: Information about the bank
+      description: Returns bank
       produces:
       - application/json
       parameters:
@@ -46,11 +46,95 @@ paths:
           description: Id of the bank to get.
       responses:
         200:
-          description: Available banks
+          description: Bank
           schema:
             $ref: "#/definitions/Bank"
         401:
           description: Wrong credentials
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - read
+  /me/banks:
+    get:
+      tags:
+      - banks
+      summary: Information about current user banks
+      description: Returns current user banks
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Current user banks
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Bank"
+        401:
+          description: Wrong credentials
+      security:
+        - OAuth2:
+          - read
+  /me/banks/{bankId}:
+    get:
+      tags:
+      - banks
+      summary: Get current user bank
+      description: Returns current user bank
+      produces:
+      - application/json
+      responses:
+        201:
+          description: Current user bank
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Bank"
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - read
+    post:
+      tags:
+      - banks
+      summary: Adds bank to current user
+      description: Adds the bank to current user
+      produces:
+      - application/json
+      responses:
+        201:
+          description: Current user banks
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Bank"
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+        409:
+          description: Current user already has the bank
+      security:
+        - OAuth2:
+          - read
+    delete:
+      tags:
+      - banks
+      summary: Removes bank from current user
+      description: Removes the bank from current user
+      produces:
+      - application/json
+      responses:
+        204:
+          description: Bank removed from user
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
       security:
         - OAuth2:
           - read

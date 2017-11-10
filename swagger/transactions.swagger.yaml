@@ -79,8 +79,6 @@ definitions:
     properties:
       id:
         type: string
-      type:
-        type: string
       description:
         type: string
       bookingDate:
@@ -110,4 +108,4 @@ securityDefinitions:
     authorizationUrl: https://api.northbricks.io/oauth/authorize
     tokenUrl: https://api.northbricks.io/oauth/token
     scopes:
-      "transaction:read": Grants read access
+      "transaction:read": Grants read access to transactions

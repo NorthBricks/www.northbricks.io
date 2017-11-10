@@ -69,6 +69,8 @@ definitions:
         type: string
       iban:
         type: string
+      type:
+        type: string
       owner:
         type: object
         properties:
@@ -82,4 +84,4 @@ securityDefinitions:
     authorizationUrl: https://api.northbricks.io/oauth/authorize
     tokenUrl: https://api.northbricks.io/oauth/token
     scopes:
-      "account:read": Grants read access
+      "account:read": Grants read access to accounts
