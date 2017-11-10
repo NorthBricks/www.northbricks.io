@@ -123,10 +123,9 @@ accountId|path|string|true|ID of account
 [
   {
     "id": "string",
-    "type": "string",
     "description": "string",
-    "bookingDate": "2017-10-09T22:41:32Z",
-    "valueDate": "2017-10-09T22:41:32Z",
+    "bookingDate": "2017-10-17T07:03:36Z",
+    "valueDate": "2017-10-17T07:03:36Z",
     "amount": {
       "value": 0,
       "currency": "string"
@@ -270,10 +269,9 @@ transactionId|path|string|true|ID of transaction
 ```json
 {
   "id": "string",
-  "type": "string",
   "description": "string",
-  "bookingDate": "2017-10-09T22:41:32Z",
-  "valueDate": "2017-10-09T22:41:32Z",
+  "bookingDate": "2017-10-17T07:03:36Z",
+  "valueDate": "2017-10-17T07:03:36Z",
   "amount": {
     "value": 0,
     "currency": "string"

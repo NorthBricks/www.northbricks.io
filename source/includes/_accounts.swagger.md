@@ -1,3 +1,56 @@
+---
+title: Northbricks Account API v1.0.0-SNAPSHOT
+language_tabs:
+  - shell: Shell
+  - http: HTTP
+  - javascript: JavaScript
+  - javascript--nodejs: Node.JS
+  - ruby: Ruby
+  - python: Python
+  - java: Java
+toc_footers: []
+includes: []
+search: true
+highlight_theme: darkula
+---
+
+# Northbricks Account API v1.0.0-SNAPSHOT
+
+> Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
+
+
+
+Base URLs:
+
+* <a href="https://api.northbricks.io/api/v1">https://api.northbricks.io/api/v1</a>
+
+
+
+
+
+
+
+# Authentication
+
+
+
+
+
+- oAuth2 authentication. This API uses OAuth 2 with the authorization code flow.
+
+    - Flow: authorizationCode
+    - Authorization URL = [https://api.northbricks.io/oauth/authorize](https://api.northbricks.io/oauth/authorize)
+    - Token URL = [https://api.northbricks.io/oauth/token](https://api.northbricks.io/oauth/token)
+
+|Scope|Scope Description|
+|---|---|
+|account:read|Grants read access to accounts|
+
+
+
+
+
+
 # accounts
 
 Account operations
@@ -123,6 +176,7 @@ bankId|path|string|true|Id of the bank.
   {
     "id": "string",
     "iban": "string",
+    "type": "string",
     "owner": {
       "name": "string"
     }
@@ -262,6 +316,7 @@ accountId|path|string|true|Id of the account.
 {
   "id": "string",
   "iban": "string",
+  "type": "string",
   "owner": {
     "name": "string"
   }
