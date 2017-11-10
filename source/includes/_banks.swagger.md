@@ -274,6 +274,7 @@ bankId|path|string|true|Id of the bank to get.
 Status|Meaning|Description|Schema
 ---|---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bank|[Bank](#schemabank)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 
@@ -521,24 +522,31 @@ System.out.println(response.toString());
 
 Returns current user bank
 
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+bankId|path|string|true|Id of the bank to get.
+
+
+
 > Example responses
 
 ```json
-[
-  {
-    "id": "string",
-    "shortName": "string",
-    "fullName": "string",
-    "logo": "string",
-    "website": "string"
-  }
-]
+{
+  "id": "string",
+  "shortName": "string",
+  "fullName": "string",
+  "logo": "string",
+  "website": "string"
+}
 ```
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Current user bank|Inline
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Current user bank|[Bank](#schemabank)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 
@@ -554,8 +562,7 @@ oauth2 ( Scopes: read )
 
 ```shell
 # You can also use wget
-curl -X POST https://api.northbricks.io/api/v1/me/banks/{bankId} \
-  -H 'Accept: application/json'
+curl -X POST https://api.northbricks.io/api/v1/me/banks/{bankId}
 
 ```
 
@@ -563,21 +570,17 @@ curl -X POST https://api.northbricks.io/api/v1/me/banks/{bankId} \
 POST https://api.northbricks.io/api/v1/me/banks/{bankId} HTTP/1.1
 Host: api.northbricks.io
 
-Accept: application/json
+
 
 ```
 
 ```javascript
-var headers = {
-  'Accept':'application/json'
-
-};
 
 $.ajax({
   url: 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
   method: 'post',
 
-  headers: headers,
+
   success: function(data) {
     console.log(JSON.stringify(data));
   }
@@ -587,16 +590,12 @@ $.ajax({
 ```javascript--nodejs
 const request = require('node-fetch');
 
-const headers = {
-  'Accept':'application/json'
-
-};
 
 fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}',
 {
-  method: 'POST',
+  method: 'POST'
 
-  headers: headers
+
 })
 .then(function(res) {
     return res.json();
@@ -609,27 +608,21 @@ fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}',
 require 'rest-client'
 require 'json'
 
-headers = {
-  'Accept' => 'application/json'
-}
+
 
 result = RestClient.post 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
   params: {
-  }, headers: headers
-
+  }
 
 p JSON.parse(result)
 ```
 
 ```python
 import requests
-headers = {
-  'Accept': 'application/json'
-}
 
 r = requests.post('https://api.northbricks.io/api/v1/me/banks/{bankId}', params={
 
-}, headers = headers)
+)
 
 print r.json()
 ```
@@ -654,27 +647,29 @@ System.out.println(response.toString());
 
 Adds the bank to current user
 
-> Example responses
+### Parameters
 
-```json
-[
-  {
-    "id": "string",
-    "shortName": "string",
-    "fullName": "string",
-    "logo": "string",
-    "website": "string"
-  }
-]
-```
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+bankId|path|string|true|Id of the bank to add.
+
+
+
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Current user banks|Inline
+201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Bank added to user|None
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid request|None
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 409|[Conflict](https://tools.ietf.org/html/rfc7231#section-6.5.8)|Current user already has the bank|None
+
+### Response Headers
+
+Status|Header|Type|Format|Description
+---|---|---|---|---|
+201|Location|string||Location of the added bank,
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -773,11 +768,20 @@ System.out.println(response.toString());
 
 Removes the bank from current user
 
+### Parameters
+
+Parameter|In|Type|Required|Description
+---|---|---|---|---|
+bankId|path|string|true|Id of the bank to delete.
+
+
+
 ### Responses
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
 204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Bank removed from user|None
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 

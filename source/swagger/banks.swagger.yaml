@@ -50,6 +50,8 @@ paths:
           description: Bank
           schema:
             $ref: "#/definitions/Bank"
+        400:
+          description: Invalid bankId
         401:
           description: Wrong credentials
         404:
@@ -87,13 +89,19 @@ paths:
       description: Returns current user bank
       produces:
       - application/json
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank to get.
       responses:
         200:
           description: Current user bank
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Bank"
+            $ref: "#/definitions/Bank"
+        400:
+          description: Invalid bankId
         401:
           description: Wrong credentials
         404:
@@ -108,13 +116,21 @@ paths:
       description: Adds the bank to current user
       produces:
       - application/json
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank to add.
       responses:
         201:
-          description: Current user banks
-          schema:
-            type: array
-            items:
-              $ref: "#/definitions/Bank"
+          description: Bank added to user
+          headers:
+            Location:
+              description: Location of the added bank,
+              type: string
+        400:
+          description: Invalid request
         401:
           description: Wrong credentials
         404:
@@ -131,9 +147,17 @@ paths:
       description: Removes the bank from current user
       produces:
       - application/json
+      parameters:
+        - in: path
+          name: bankId
+          type: string
+          required: true
+          description: Id of the bank to delete.
       responses:
         204:
           description: Bank removed from user
+        400:
+          description: Invalid bankId
         401:
           description: Wrong credentials
         404:
