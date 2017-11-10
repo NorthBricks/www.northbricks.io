@@ -538,7 +538,7 @@ Returns current user bank
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-201|[Created](https://tools.ietf.org/html/rfc7231#section-6.3.2)|Current user bank|Inline
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Current user bank|Inline
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 

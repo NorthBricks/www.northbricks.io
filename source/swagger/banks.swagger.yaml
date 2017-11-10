@@ -30,6 +30,7 @@ paths:
       security:
         - OAuth2:
           - read
+
   /banks/{bankId}:
     get:
       tags:
@@ -56,6 +57,7 @@ paths:
       security:
         - OAuth2:
           - read
+
   /me/banks:
     get:
       tags:
@@ -76,6 +78,7 @@ paths:
       security:
         - OAuth2:
           - read
+
   /me/banks/{bankId}:
     get:
       tags:
@@ -85,7 +88,7 @@ paths:
       produces:
       - application/json
       responses:
-        201:
+        200:
           description: Current user bank
           schema:
             type: array
