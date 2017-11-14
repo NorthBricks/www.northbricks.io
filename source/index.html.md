@@ -12,6 +12,7 @@ language_tabs:
 
 includes:
   - user.swagger
+  - bank-auth.swagger
   - banks.swagger
   - accounts.swagger
   - transactions.swagger
