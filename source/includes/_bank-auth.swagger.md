@@ -107,7 +107,7 @@ access_token|query|string|true|Access token to Northbricks.
 
 Status|Meaning|Description|Schema
 ---|---|---|---|
-204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Authorization successful|None
+200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Authorization successful|None
 401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None
 
