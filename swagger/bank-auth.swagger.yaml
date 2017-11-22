@@ -29,7 +29,7 @@ paths:
           schema:
             type: string
       responses:
-        204:
+        200:
           description: Authorization successful
         401:
           description: Wrong credentials
