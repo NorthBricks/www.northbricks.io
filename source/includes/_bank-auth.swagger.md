@@ -1,4 +1,3 @@
----
 # bank-auth
 
 Bank operations
@@ -9,12 +8,12 @@ Bank operations
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth
+curl -X GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth HTTP/1.1
+GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string HTTP/1.1
 Host: api.northbricks.io
 
 
@@ -26,7 +25,7 @@ Host: api.northbricks.io
 $.ajax({
   url: 'https://api.northbricks.io/api/v1/me/banks/{bankId}/auth',
   method: 'get',
-
+  data: '?access_token=string',
 
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -38,7 +37,7 @@ $.ajax({
 const request = require('node-fetch');
 
 
-fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}/auth',
+fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string',
 {
   method: 'GET'
 
@@ -59,7 +58,8 @@ require 'json'
 
 result = RestClient.get 'https://api.northbricks.io/api/v1/me/banks/{bankId}/auth',
   params: {
-  }
+  'access_token' => 'string'
+}
 
 p JSON.parse(result)
 ```
@@ -68,14 +68,14 @@ p JSON.parse(result)
 import requests
 
 r = requests.get('https://api.northbricks.io/api/v1/me/banks/{bankId}/auth', params={
-
+  'access_token': 'string'
 )
 
 print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bankId}/auth");
+URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -99,6 +99,7 @@ User authenticates and gives consent to Northbricks to access their assets.
 Parameter|In|Type|Required|Description
 ---|---|---|---|---|
 bankId|path|string|true|Id of the bank to get.
+access_token|query|string|true|Access token to Northbricks.
 
 
 

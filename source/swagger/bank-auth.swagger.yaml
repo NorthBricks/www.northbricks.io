@@ -22,6 +22,12 @@ paths:
           description: Id of the bank to get.
           schema:
             type: string
+        - name: access_token
+          in: query
+          required: true
+          description: Access token to Northbricks.
+          schema:
+            type: string
       responses:
         204:
           description: Authorization successful
