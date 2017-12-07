@@ -21,9 +21,12 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Bank"
+                type: object
+                properties:
+                  banks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Bank"
         401:
           description: Wrong credentials
       security:
@@ -72,9 +75,12 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Bank"
+                type: object
+                properties:
+                  banks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Bank"
         401:
           description: Wrong credentials
       security:

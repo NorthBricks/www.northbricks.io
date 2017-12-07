@@ -111,15 +111,17 @@ Returns available banks
 > Example responses
 
 ```json
-[
-  {
-    "id": "string",
-    "shortName": "string",
-    "fullName": "string",
-    "logo": "string",
-    "website": "string"
-  }
-]
+{
+  "banks": [
+    {
+      "id": "string",
+      "shortName": "string",
+      "fullName": "string",
+      "logo": "string",
+      "website": "string"
+    }
+  ]
+}
 ```
 ### Responses
 
@@ -383,15 +385,17 @@ Returns current user banks
 > Example responses
 
 ```json
-[
-  {
-    "id": "string",
-    "shortName": "string",
-    "fullName": "string",
-    "logo": "string",
-    "website": "string"
-  }
-]
+{
+  "banks": [
+    {
+      "id": "string",
+      "shortName": "string",
+      "fullName": "string",
+      "logo": "string",
+      "website": "string"
+    }
+  ]
+}
 ```
 ### Responses
 

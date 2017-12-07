@@ -120,21 +120,23 @@ accountId|path|string|true|ID of account
 > Example responses
 
 ```json
-[
-  {
-    "id": "string",
-    "description": "string",
-    "bookingDate": "2017-10-17T07:03:36Z",
-    "valueDate": "2017-10-17T07:03:36Z",
-    "amount": {
-      "value": 0,
-      "currency": "string"
-    },
-    "relatedParty": {
-      "name": "string"
+{
+  "transactions": [
+    {
+      "id": "string",
+      "description": "string",
+      "bookingDate": "2017-12-07T21:19:53Z",
+      "valueDate": "2017-12-07T21:19:53Z",
+      "amount": {
+        "value": 0,
+        "currency": "string"
+      },
+      "relatedParty": {
+        "name": "string"
+      }
     }
-  }
-]
+  ]
+}
 ```
 ### Responses
 
@@ -270,8 +272,8 @@ transactionId|path|string|true|ID of transaction
 {
   "id": "string",
   "description": "string",
-  "bookingDate": "2017-10-17T07:03:36Z",
-  "valueDate": "2017-10-17T07:03:36Z",
+  "bookingDate": "2017-12-07T21:19:53Z",
+  "valueDate": "2017-12-07T21:19:53Z",
   "amount": {
     "value": 0,
     "currency": "string"

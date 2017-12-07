@@ -33,9 +33,12 @@ paths:
         200:
           description: Successful operation
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Transaction"
+            type: object
+            properties:
+              transactions:
+                type: array
+                items:
+                  $ref: "#/definitions/Transaction"
       security:
         - OAuth2:
           - "transaction:read"

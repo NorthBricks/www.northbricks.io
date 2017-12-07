@@ -1,13 +1,3 @@
----
-title: Northbricks Account API v1.0.0-SNAPSHOT
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - javascript--nodejs: Node.JS
-  - ruby: Ruby
-  - python: Python
-  - java: Java
 # accounts
 
 Account operations
@@ -129,16 +119,18 @@ bankId|path|string|true|Id of the bank.
 > Example responses
 
 ```json
-[
-  {
-    "id": "string",
-    "iban": "string",
-    "type": "string",
-    "owner": {
-      "name": "string"
+{
+  "accounts": [
+    {
+      "id": "string",
+      "iban": "string",
+      "type": "string",
+      "owner": {
+        "name": "string"
+      }
     }
-  }
-]
+  ]
+}
 ```
 ### Responses
 
