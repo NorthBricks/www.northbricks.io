@@ -28,9 +28,12 @@ paths:
         200:
           description: Accounts in the bank
           schema:
-            type: array
-            items:
-              $ref: "#/definitions/Account"
+            type: object
+            properties:
+              accounts:
+                type: array
+                items:
+                  $ref: "#/definitions/Account"
       security:
         - OAuth2:
           - "account:read"
