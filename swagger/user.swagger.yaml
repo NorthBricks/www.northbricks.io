@@ -1,57 +1,92 @@
-swagger: "2.0"
+openapi: 3.0.0
 info:
-  version: "1.0.0-SNAPSHOT"
-  title: "Northbricks User API"
-host: "api.northbricks.io"
-basePath: "/api/v1"
+  title: Northbricks Bank API
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: https://api.northbricks.io/api/v1
+    description: Production
 tags:
-- name: "user"
-  description: "User operations"
-schemes:
-- "https"
+- name: users
+  description: User operations
 paths:
-  /me/user:
-    get:
+  /users:
+    post:
       tags:
-      - "user"
-      summary: "Information about current user"
-      description: "Returns user information"
-      produces:
-      - "application/json"
+      - users
+      summary: Create user
+      description: Create a new Northbricks user
+      requestBody:
+        description: User to add.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+              required:
+              - email
       responses:
-        200:
-          description: "User information"
-          schema:
-            $ref: "#/definitions/User"
+        202:
+          description: User creation initialized. Confirmation email sent with instructions for how to complete the process.
+        400:
+          description: Invalid request
         401:
-          description: "Wrong credentials"
+          description: Wrong credentials
+        409:
+          description: Current user already exist
       security:
         - OAuth2:
           - read
-definitions:
-  User:
-    type: "object"
-    properties:
-      id:
-        type: "string"
-      username:
-        type: "string"
-      oauth2Scope:
-        type: "string"
-      firstName:
-        type: "string"
-      lastName:
-        type: "string"
-      email:
-        type: "string"
-      phone:
-        type: "string"
-securityDefinitions:
-  OAuth2:
-    type: oauth2
-    description: This API uses OAuth 2 with the authorization code flow.
-    flow: accessCode
-    authorizationUrl: https://api.northbricks.io/oauth/authorize
-    tokenUrl: https://api.northbricks.io/oauth/token
-    scopes:
-      read: Grants read access
+
+  /me/user:
+    get:
+      tags:
+      - users
+      summary: Information about current user
+      description: Returns user information
+      responses:
+        200:
+          description: User information
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        401:
+          description: Wrong credentials
+      security:
+        - OAuth2:
+          - read
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        oauth2Scope:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: This API uses OAuth 2 with the authorization code flow.
+      flow:
+        authorizationCode:
+          authorizationUrl: https://api.northbricks.io/oauth/authorize
+          tokenUrl: https://api.northbricks.io/oauth/token
+          scopes:
+            read: Grants read access

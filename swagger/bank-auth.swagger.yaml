@@ -14,7 +14,7 @@ paths:
       tags:
       - bank-auth
       summary: User authorize Northbricks to access their assets
-      description: User authenticates and gives consent to Northbricks to access their assets.
+      description: Open this URL in a browser. User authenticates and gives consent to Northbricks to access their assets.
       parameters:
         - name: bankId
           in: path
@@ -54,4 +54,3 @@ components:
       security:
         - OAuth2:
           - read
-

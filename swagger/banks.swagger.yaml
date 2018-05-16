@@ -194,7 +194,7 @@ components:
     OAuth2:
       type: oauth2
       description: This API uses OAuth 2 with the authorization code flow.
-      flow:
+      flows:
         authorizationCode:
           authorizationUrl: https://api.northbricks.io/oauth/authorize
           tokenUrl: https://api.northbricks.io/oauth/token
