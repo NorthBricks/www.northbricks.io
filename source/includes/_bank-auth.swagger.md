@@ -92,7 +92,7 @@ System.out.println(response.toString());
 
 *User authorize Northbricks to access their assets*
 
-User authenticates and gives consent to Northbricks to access their assets.
+Open this URL in a browser. User authenticates and gives consent to Northbricks to access their assets.
 
 ### Parameters
 

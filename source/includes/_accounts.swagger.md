@@ -125,6 +125,9 @@ bankId|path|string|true|Id of the bank.
       "id": "string",
       "iban": "string",
       "type": "string",
+      "status": "string",
+      "currency": "string",
+      "balance": 0,
       "owner": {
         "name": "string"
       }
@@ -137,6 +140,8 @@ bankId|path|string|true|Id of the bank.
 Status|Meaning|Description|Schema
 ---|---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accounts in the bank|Inline
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bank not found on user|None
+401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -266,6 +271,9 @@ accountId|path|string|true|Id of the account.
   "id": "string",
   "iban": "string",
   "type": "string",
+  "status": "string",
+  "currency": "string",
+  "balance": 0,
   "owner": {
     "name": "string"
   }
@@ -276,6 +284,8 @@ accountId|path|string|true|Id of the account.
 Status|Meaning|Description|Schema
 ---|---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The account|[Account](#schemaaccount)
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Account not found on user|None
+401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:

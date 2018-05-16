@@ -1,3 +1,19 @@
+---
+title: Northbricks Transaction API v1.0.0-SNAPSHOT
+language_tabs:
+  - shell: Shell
+  - http: HTTP
+  - javascript: JavaScript
+  - javascript--nodejs: Node.JS
+  - ruby: Ruby
+  - python: Python
+  - java: Java
+toc_footers: []
+includes: []
+search: true
+highlight_theme: darkula
+---
+
 # transactions
 
 Transaction operations
@@ -125,8 +141,8 @@ accountId|path|string|true|ID of account
     {
       "id": "string",
       "description": "string",
-      "bookingDate": "2017-12-07T21:19:53Z",
-      "valueDate": "2017-12-07T21:19:53Z",
+      "bookingDate": "2018-05-16T21:19:38Z",
+      "valueDate": "2018-05-16T21:19:38Z",
       "amount": {
         "value": 0,
         "currency": "string"
@@ -143,6 +159,8 @@ accountId|path|string|true|ID of account
 Status|Meaning|Description|Schema
 ---|---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful operation|Inline
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bank account not found on user|None
+401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -272,8 +290,8 @@ transactionId|path|string|true|ID of transaction
 {
   "id": "string",
   "description": "string",
-  "bookingDate": "2017-12-07T21:19:53Z",
-  "valueDate": "2017-12-07T21:19:53Z",
+  "bookingDate": "2018-05-16T21:19:38Z",
+  "valueDate": "2018-05-16T21:19:38Z",
   "amount": {
     "value": 0,
     "currency": "string"
@@ -288,7 +306,8 @@ transactionId|path|string|true|ID of transaction
 Status|Meaning|Description|Schema
 ---|---|---|---|
 200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Successful operation|[Transaction](#schematransaction)
-404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Transaction not found|None
+400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bank account not found on user|None
+401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:

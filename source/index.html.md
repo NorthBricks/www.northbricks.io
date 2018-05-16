@@ -23,3 +23,7 @@ search: true
 # Introduction
 
 Welcome to the Northbricks API! <a href="mailto:info@northbricks.com">Contact us</a> if you are interested in our API.
+
+# Sandbox
+
+The Northbricks API Sandbox can be used to develop and test your application. The banks in the Sandbox contains test users. You can find the credentials for these users on [Sandbox Bank Authentication](sandbox-bank-authentication.html).
