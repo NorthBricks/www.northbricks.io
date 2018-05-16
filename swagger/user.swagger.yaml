@@ -9,38 +9,6 @@ tags:
 - name: users
   description: User operations
 paths:
-  /users:
-    post:
-      tags:
-      - users
-      summary: Create user
-      description: Create a new Northbricks user
-      requestBody:
-        description: User to add.
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  minLength: 1
-                  maxLength: 100
-              required:
-              - email
-      responses:
-        202:
-          description: User creation initialized. Confirmation email sent with instructions for how to complete the process.
-        400:
-          description: Invalid request
-        401:
-          description: Wrong credentials
-        409:
-          description: Current user already exist
-      security:
-        - OAuth2:
-          - read
-
   /me/user:
     get:
       tags:
