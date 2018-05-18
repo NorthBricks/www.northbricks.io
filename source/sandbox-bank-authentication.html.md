@@ -1,3 +1,6 @@
+---
+title: Northbricks API Reference
+---
 # Sandbox Bank Authentication
 
 Follow these steps to add a new bank as a user.
