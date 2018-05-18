@@ -24,7 +24,7 @@ search: true
 
 Welcome to the Northbricks API! <a href="mailto:info@northbricks.com">Contact us</a> if you are interested in our API.
 
-# Connection to Northbricks API
+# Connecting to Northbricks API
 
 To be able to connect to the API you need to get an access token. After that you create a request header with the name `Authorization` and value `Bearer [access token]`.
 
