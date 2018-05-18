@@ -236,6 +236,12 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#connection-to-northbricks-api" class="toc-h1 toc-link" data-title="Connection to Northbricks API">Connection to Northbricks API</a>
+          </li>
+          <li>
+            <a href="#adding-a-bank-to-a-user" class="toc-h1 toc-link" data-title="Adding a bank to a user">Adding a bank to a user</a>
+          </li>
+          <li>
             <a href="#sandbox" class="toc-h1 toc-link" data-title="Sandbox">Sandbox</a>
           </li>
           <li>
@@ -306,6 +312,27 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the Northbricks API! <a href="mailto:info@northbricks.com">Contact us</a> if you are interested in our API.</p>
+<h1 id='connection-to-northbricks-api'>Connection to Northbricks API</h1>
+<p>To be able to connect to the API you need to get an access token. After that you create a request header with the name <code>Authorization</code> and value <code>Bearer [access token]</code>.</p>
+
+<p>Get an access token with <a href="https://www.getpostman.com/">Postman</a>:<br>
+1. Select authorization type <code>Oauth2</code>.<br>
+2. Select add authorization data to <code>Request headers</code>.<br>
+3. Click <em>Get New Access Token</em>.<br>
+4. Set <em>Grant Type</em> <code>Authorization Code</code>.<br>
+5. Set <em>Callback URL</em> <code>https://www.getpostman.com/oauth2/callback</code>.<br>
+6. Set <em>Auth URL</em> <code>https://api.northbricks.io/oauth/authorize</code>.<br>
+7. Set <em>Access Token URL</em> <code>https://api.northbricks.io/oauth/token</code>.<br>
+8. Set <em>Client ID</em> to your Client ID.<br>
+9. Set <em>Client Secret</em> to your Client Secret.<br>
+10. Set <em>scope</em> to <code>read</code> (scopes are not fully implemented yet).<br>
+11. Set <em>Client Authentication</em> <code>Send as Basic Auth header</code>.<br>
+12. Click <em>Request token</em> and login with a user that you created with <a href="https://api.northbricks.io/signup">https://api.northbricks.io/signup</a>.<br>
+13. You can now start using the api. Try to make a <code>GET</code> request to <a href="https://api.northbricks.io/api/v1/banks">https://api.northbricks.io/api/v1/banks</a> with the aquired token in a request header.</p>
+<h1 id='adding-a-bank-to-a-user'>Adding a bank to a user</h1>
+<p>First add the bank to the user with <a href="/#post-me-banks">POST /me/banks</a>.</p>
+
+<p>The user needs to give Northbricks permissions to access their assets. Open <a href="/#get-me-banks-bankid-auth">/me/banks/{bankId}/auth</a> in a browser and let the user login and give permissions to Northbricks.</p>
 <h1 id='sandbox'>Sandbox</h1>
 <p>The Northbricks API Sandbox can be used to develop and test your application. The banks in the Sandbox contains test users. You can find the credentials for these users on <a href="sandbox-bank-authentication.html">Sandbox Bank Authentication</a>.</p>
 <h1 id='users'>users</h1>
