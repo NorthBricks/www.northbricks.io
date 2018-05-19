@@ -39,3 +39,10 @@ node node_modules/widdershins/widdershins.js -y -n -s source/swagger/transaction
 ```
 
 Now remove the first section in the generated file(s).
+
+## Prerequisites Ubuntu
+
+These dependencies need to be installed to build and run on Ubuntu.
+```sh
+sudo apt-get install nodejs npm zlib1g-dev ruby-full
+```
