@@ -68,30 +68,40 @@ paths:
               properties:
                 creditorAccount:
                   type: object
+                  description: Creditor of the payment
                   properties:
                     type:
                       type: string
+                      description: ACCOUNT_ID, IBAN, PGNR, BGNR
                     account:
                       type: string
+                      description: Account number
                     message:
                       type: string
+                      description: Message for the creditor to appear on their transaction
                 debtorAccount:
                   type: object
+                  description: Debtor of the payment
                   properties:
                     type:
                       type: string
+                      description: ACCOUNT_ID, IBAN, PGNR, BGNR
                     account:
                       type: string
+                      description: Account number
                     message:
                       type: string
+                      description: Message for the debtor to appear on their transaction
                 amount:
                   type: object
                   properties:
                     value:
                       type: number
                       format: double
+                      description: Monetary amount of the payment
                     currency:
                       type: string
+                      description: Currency code according to ISO 4217
       responses:
         201:
           description: Payment initialized
@@ -190,37 +200,46 @@ components:
       properties:
         id:
           type: string
+          description: Unique payment identifier for payment
         status:
           type: string
-          description: PAYMENT_STATUS_NOT_PROVIDED, PROCESSING, PENDING_CONFIRMATION, PENDING_USER_APPROVAL, ON_HOLD, CONFIRMED, REJECTED, PAID, INSUFFICIENT_FUNDS, LIMIT_EXCEEDED, USER_APPROVAL_FAILED, USER_APPROVAL_TIMEOUT, USER_APPROVAL_CANCELLED 
+          description: PAYMENT_STATUS_NOT_PROVIDED, PROCESSING, PENDING_CONFIRMATION, PENDING_USER_APPROVAL, ON_HOLD, CONFIRMED, REJECTED, PAID, INSUFFICIENT_FUNDS, LIMIT_EXCEEDED, USER_APPROVAL_FAILED, USER_APPROVAL_TIMEOUT, USER_APPROVAL_CANCELLED
         creditorAccount:
           type: object
+          description: Creditor of the payment
           properties:
             type:
               type: string
               description: ACCOUNT_ID, IBAN, PGNR, BGNR
             account:
               type: string
+              description: Account number
             message:
               type: string
+              description: Message for the creditor to appear on their transaction
         debtorAccount:
           type: object
+          description: Debtor of the payment
           properties:
             type:
               type: string
-              description: ACCOUNT_ID, IBAN
+              description: ACCOUNT_ID, IBAN, PGNR, BGNR
             account:
               type: string
+              description: Account number
             message:
               type: string
+              description: Message for the debtor to appear on their transaction
         amount:
           type: object
           properties:
             value:
               type: number
               format: double
+              description: Monetary amount of the payment
             currency:
               type: string
+              description: Currency code according to ISO 4217
 
   securitySchemes:
     OAuth2:

@@ -196,19 +196,19 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» payments|[[Payment](#schemapayment)]|false|none|none|
-|»» id|string|false|none|none|
+|»» id|string|false|none|Unique payment identifier for payment|
 |»» status|string|false|none|PAYMENT_STATUS_NOT_PROVIDED, PROCESSING, PENDING_CONFIRMATION, PENDING_USER_APPROVAL, ON_HOLD, CONFIRMED, REJECTED, PAID, INSUFFICIENT_FUNDS, LIMIT_EXCEEDED, USER_APPROVAL_FAILED, USER_APPROVAL_TIMEOUT, USER_APPROVAL_CANCELLED|
-|»» creditorAccount|object|false|none|none|
+|»» creditorAccount|object|false|none|Creditor of the payment|
 |»»» type|string|false|none|ACCOUNT_ID, IBAN, PGNR, BGNR|
-|»»» account|string|false|none|none|
-|»»» message|string|false|none|none|
-|»» debtorAccount|object|false|none|none|
-|»»» type|string|false|none|ACCOUNT_ID, IBAN|
-|»»» account|string|false|none|none|
-|»»» message|string|false|none|none|
+|»»» account|string|false|none|Account number|
+|»»» message|string|false|none|Message for the creditor to appear on their transaction|
+|»» debtorAccount|object|false|none|Debtor of the payment|
+|»»» type|string|false|none|ACCOUNT_ID, IBAN, PGNR, BGNR|
+|»»» account|string|false|none|Account number|
+|»»» message|string|false|none|Message for the debtor to appear on their transaction|
 |»» amount|object|false|none|none|
-|»»» value|number(double)|false|none|none|
-|»»» currency|string|false|none|none|
+|»»» value|number(double)|false|none|Monetary amount of the payment|
+|»»» currency|string|false|none|Currency code according to ISO 4217|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -398,17 +398,17 @@ Initiates a payment
 |---|---|---|---|---|
 |bankId|path|string|true|ID of bank|
 |body|body|object|false|Bank to make the payment from|
-|» creditorAccount|body|object|false|none|
-|»» type|body|string|false|none|
-|»» account|body|string|false|none|
-|»» message|body|string|false|none|
-|» debtorAccount|body|object|false|none|
-|»» type|body|string|false|none|
-|»» account|body|string|false|none|
-|»» message|body|string|false|none|
+|» creditorAccount|body|object|false|Creditor of the payment|
+|»» type|body|string|false|ACCOUNT_ID, IBAN, PGNR, BGNR|
+|»» account|body|string|false|Account number|
+|»» message|body|string|false|Message for the creditor to appear on their transaction|
+|» debtorAccount|body|object|false|Debtor of the payment|
+|»» type|body|string|false|ACCOUNT_ID, IBAN, PGNR, BGNR|
+|»» account|body|string|false|Account number|
+|»» message|body|string|false|Message for the debtor to appear on their transaction|
 |» amount|body|object|false|none|
-|»» value|body|number(double)|false|none|
-|»» currency|body|string|false|none|
+|»» value|body|number(double)|false|Monetary amount of the payment|
+|»» currency|body|string|false|Currency code according to ISO 4217|
 
 <h3 id="initiate-payment-responses">Responses</h3>
 
