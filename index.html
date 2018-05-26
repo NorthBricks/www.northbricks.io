@@ -3118,7 +3118,7 @@ Accept: application/json
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Unique payment identifier for payment</td>
 </tr>
 <tr>
 <td>»» status</td>
@@ -3132,7 +3132,7 @@ Accept: application/json
 <td>object</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Creditor of the payment</td>
 </tr>
 <tr>
 <td>»»» type</td>
@@ -3146,42 +3146,42 @@ Accept: application/json
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Account number</td>
 </tr>
 <tr>
 <td>»»» message</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Message for the creditor to appear on their transaction</td>
 </tr>
 <tr>
 <td>»» debtorAccount</td>
 <td>object</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Debtor of the payment</td>
 </tr>
 <tr>
 <td>»»» type</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>ACCOUNT_ID, IBAN</td>
+<td>ACCOUNT_ID, IBAN, PGNR, BGNR</td>
 </tr>
 <tr>
 <td>»»» account</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Account number</td>
 </tr>
 <tr>
 <td>»»» message</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Message for the debtor to appear on their transaction</td>
 </tr>
 <tr>
 <td>»» amount</td>
@@ -3195,14 +3195,14 @@ Accept: application/json
 <td>number(double)</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Monetary amount of the payment</td>
 </tr>
 <tr>
 <td>»»» currency</td>
 <td>string</td>
 <td>false</td>
 <td>none</td>
-<td>none</td>
+<td>Currency code according to ISO 4217</td>
 </tr>
 </tbody></table>
 
@@ -3393,56 +3393,56 @@ curl -X POST https://api.northbricks.io/api/v1/banks/<span class="o">{</span>ban
 <td>body</td>
 <td>object</td>
 <td>false</td>
-<td>none</td>
+<td>Creditor of the payment</td>
 </tr>
 <tr>
 <td>»» type</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>ACCOUNT_ID, IBAN, PGNR, BGNR</td>
 </tr>
 <tr>
 <td>»» account</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Account number</td>
 </tr>
 <tr>
 <td>»» message</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Message for the creditor to appear on their transaction</td>
 </tr>
 <tr>
 <td>» debtorAccount</td>
 <td>body</td>
 <td>object</td>
 <td>false</td>
-<td>none</td>
+<td>Debtor of the payment</td>
 </tr>
 <tr>
 <td>»» type</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>ACCOUNT_ID, IBAN, PGNR, BGNR</td>
 </tr>
 <tr>
 <td>»» account</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Account number</td>
 </tr>
 <tr>
 <td>»» message</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Message for the debtor to appear on their transaction</td>
 </tr>
 <tr>
 <td>» amount</td>
@@ -3456,14 +3456,14 @@ curl -X POST https://api.northbricks.io/api/v1/banks/<span class="o">{</span>ban
 <td>body</td>
 <td>number(double)</td>
 <td>false</td>
-<td>none</td>
+<td>Monetary amount of the payment</td>
 </tr>
 <tr>
 <td>»» currency</td>
 <td>body</td>
 <td>string</td>
 <td>false</td>
-<td>none</td>
+<td>Currency code according to ISO 4217</td>
 </tr>
 </tbody></table>
 
