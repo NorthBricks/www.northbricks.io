@@ -610,7 +610,7 @@ Returns all information about a payment
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-OAuth2 ( Scopes: transaction:read )
+OAuth2 ( Scopes: payment:read )
 </aside>
 
 ## PUT /banks/{bankId}/payments/{paymentId}

@@ -148,7 +148,7 @@ paths:
           description: Payment not found 
       security:
         - OAuth2:
-          - "transaction:read"
+          - "payment:read"
 
     put:
       tags:
