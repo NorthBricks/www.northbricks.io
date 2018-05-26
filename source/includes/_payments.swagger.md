@@ -1,8 +1,8 @@
-# payments
+<h1 id="Northbricks-Paymentn-API-Payments">Payments</h1>
 
 Payment operations
 
-## GET /banks/{bankId}/payments
+## Get all payments
 
 > Code samples
 
@@ -142,11 +142,9 @@ func main() {
 
 `GET /banks/{bankId}/payments`
 
-*List payments*
-
 Returns all payments for the user
 
-### Parameters
+<h3 id="get-all-payments-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -181,7 +179,7 @@ Returns all payments for the user
 }
 ```
 
-### Responses
+<h3 id="get-all-payments-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -191,20 +189,33 @@ Returns all payments for the user
 |403|[Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3)|Need to authenticate with the bank|None|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None|
 
-### Response Schema
+<h3 id="get-all-payments-responseschema">Response Schema</h3>
 
 Status Code **200**
 
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» payments|[[Payment](#schemapayment)]|false|none|none|
+|»» id|string|false|none|none|
+|»» status|string|false|none|PAYMENT_STATUS_NOT_PROVIDED, PROCESSING, PENDING_CONFIRMATION, PENDING_USER_APPROVAL, ON_HOLD, CONFIRMED, REJECTED, PAID, INSUFFICIENT_FUNDS, LIMIT_EXCEEDED, USER_APPROVAL_FAILED, USER_APPROVAL_TIMEOUT, USER_APPROVAL_CANCELLED|
+|»» creditorAccount|object|false|none|none|
+|»»» type|string|false|none|ACCOUNT_ID, IBAN, PGNR, BGNR|
+|»»» account|string|false|none|none|
+|»»» message|string|false|none|none|
+|»» debtorAccount|object|false|none|none|
+|»»» type|string|false|none|ACCOUNT_ID, IBAN|
+|»»» account|string|false|none|none|
+|»»» message|string|false|none|none|
+|»» amount|object|false|none|none|
+|»»» value|number(double)|false|none|none|
+|»»» currency|string|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
 OAuth2 ( Scopes: payment:read )
 </aside>
 
-## POST /banks/{bankId}/payments
+## Initiate payment
 
 > Code samples
 
@@ -358,8 +369,6 @@ func main() {
 
 `POST /banks/{bankId}/payments`
 
-*Initiate payment*
-
 Initiates a payment
 
 > Body parameter
@@ -383,7 +392,7 @@ Initiates a payment
 }
 ```
 
-### Parameters
+<h3 id="initiate-payment-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -401,7 +410,7 @@ Initiates a payment
 |»» value|body|number(double)|false|none|
 |»» currency|body|string|false|none|
 
-### Responses
+<h3 id="initiate-payment-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -422,7 +431,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 OAuth2 ( Scopes: payment:write )
 </aside>
 
-## GET /banks/{bankId}/payments/{paymentId}
+## Get payment
 
 > Code samples
 
@@ -562,11 +571,9 @@ func main() {
 
 `GET /banks/{bankId}/payments/{paymentId}`
 
-*Returns a payment*
-
 Returns all information about a payment
 
-### Parameters
+<h3 id="get-payment-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -598,7 +605,7 @@ Returns all information about a payment
 }
 ```
 
-### Responses
+<h3 id="get-payment-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -613,7 +620,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 OAuth2 ( Scopes: payment:read )
 </aside>
 
-## PUT /banks/{bankId}/payments/{paymentId}
+## Confirm payment
 
 > Code samples
 
@@ -745,18 +752,16 @@ func main() {
 
 `PUT /banks/{bankId}/payments/{paymentId}`
 
-*Confirm payment*
-
 Confirm a previously initialized payment
 
-### Parameters
+<h3 id="confirm-payment-parameters">Parameters</h3>
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |bankId|path|string|true|ID of bank|
 |paymentId|path|string|true|ID of payment|
 
-### Responses
+<h3 id="confirm-payment-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
@@ -770,6 +775,3 @@ Confirm a previously initialized payment
 To perform this operation, you must be authenticated by means of one of the following methods:
 OAuth2 ( Scopes: payment:write )
 </aside>
-
-
-

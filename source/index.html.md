@@ -9,6 +9,7 @@ language_tabs:
   - ruby: Ruby
   - python: Python
   - java: Java
+  - go: Go
 
 includes:
   - user.swagger

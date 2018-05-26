@@ -6,14 +6,14 @@ servers:
   - url: https://api.northbricks.io/api/v1
     description: Production
 tags:
-- name: bank-auth
+- name: Bank-auth
   description: Bank operations
 paths:
   /me/banks/{bankId}/auth:
     get:
       tags:
-      - bank-auth
-      summary: User authorize Northbricks to access their assets
+      - Bank-auth
+      summary: Authenticate to bank
       description: Open this URL in a browser. User authenticates and gives consent to Northbricks to access their assets.
       parameters:
         - name: bankId

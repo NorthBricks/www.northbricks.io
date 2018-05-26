@@ -1,15 +1,16 @@
-# accounts
+<h1 id="Northbricks-Account-API-Accounts">Accounts</h1>
 
 Account operations
 
-## GET /banks/{bankId}/accounts
+## Get all accounts
 
 > Code samples
 
 ```shell
 # You can also use wget
 curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -23,7 +24,8 @@ Accept: application/json
 
 ```javascript
 var headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -36,13 +38,15 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
+
 ```
 
 ```javascript--nodejs
 const request = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -57,6 +61,7 @@ fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
 }).then(function(body) {
     console.log(body);
 });
+
 ```
 
 ```ruby
@@ -64,21 +69,23 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
   params: {
   }, headers: headers
 
-
 p JSON.parse(result)
+
 ```
 
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts', params={
@@ -86,6 +93,7 @@ r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts', pa
 }, headers = headers)
 
 print r.json()
+
 ```
 
 ```java
@@ -102,21 +110,49 @@ while ((inputLine = in.readLine()) != null) {
 }
 in.close();
 System.out.println(response.toString());
+
 ```
 
-*Information about accounts*
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /banks/{bankId}/accounts`
 
 Returns accounts in a bank for the user
 
-### Parameters
+<h3 id="get-all-accounts-parameters">Parameters</h3>
 
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-bankId|path|string|true|Id of the bank.
-
-
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|bankId|path|string|true|Id of the bank.|
 
 > Example responses
+
+> 200 Response
 
 ```json
 {
@@ -135,28 +171,45 @@ bankId|path|string|true|Id of the bank.
   ]
 }
 ```
-### Responses
 
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accounts in the bank|Inline
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bank not found on user|None
-401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
+<h3 id="get-all-accounts-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Accounts in the bank|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Bank not found on user|None|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
+
+<h3 id="get-all-accounts-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|» accounts|[[Account](#schemaaccount)]|false|none|none|
+|»» id|string|false|none|none|
+|»» iban|string|false|none|none|
+|»» type|string|false|none|none|
+|»» status|string|false|none|none|
+|»» currency|string|false|none|none|
+|»» balance|number(double)|false|none|none|
+|»» owner|object|false|none|none|
+|»»» name|string|false|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: account:read )
+OAuth2 ( Scopes: account:read )
 </aside>
 
-
-## GET /banks/{bankId}/accounts/{accountId}
+## Get account
 
 > Code samples
 
 ```shell
 # You can also use wget
 curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId} \
-  -H 'Accept: application/json'
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer {access-token}'
 
 ```
 
@@ -170,7 +223,8 @@ Accept: application/json
 
 ```javascript
 var headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -183,13 +237,15 @@ $.ajax({
     console.log(JSON.stringify(data));
   }
 })
+
 ```
 
 ```javascript--nodejs
 const request = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json'
+  'Accept':'application/json',
+  'Authorization':'Bearer {access-token}'
 
 };
 
@@ -204,6 +260,7 @@ fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
 }).then(function(body) {
     console.log(body);
 });
+
 ```
 
 ```ruby
@@ -211,21 +268,23 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json'
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer {access-token}'
 }
 
 result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
   params: {
   }, headers: headers
 
-
 p JSON.parse(result)
+
 ```
 
 ```python
 import requests
 headers = {
-  'Accept': 'application/json'
+  'Accept': 'application/json',
+  'Authorization': 'Bearer {access-token}'
 }
 
 r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}', params={
@@ -233,6 +292,7 @@ r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{acc
 }, headers = headers)
 
 print r.json()
+
 ```
 
 ```java
@@ -249,22 +309,50 @@ while ((inputLine = in.readLine()) != null) {
 }
 in.close();
 System.out.println(response.toString());
+
 ```
 
-*Information about an account*
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer {access-token}"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+`GET /banks/{bankId}/accounts/{accountId}`
 
 Returns the account
 
-### Parameters
+<h3 id="get-account-parameters">Parameters</h3>
 
-Parameter|In|Type|Required|Description
----|---|---|---|---|
-bankId|path|string|true|Id of the bank.
-accountId|path|string|true|Id of the account.
-
-
+|Parameter|In|Type|Required|Description|
+|---|---|---|---|---|
+|bankId|path|string|true|Id of the bank.|
+|accountId|path|string|true|Id of the account.|
 
 > Example responses
+
+> 200 Response
 
 ```json
 {
@@ -279,20 +367,16 @@ accountId|path|string|true|Id of the account.
   }
 }
 ```
-### Responses
 
-Status|Meaning|Description|Schema
----|---|---|---|
-200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The account|[Account](#schemaaccount)
-400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Account not found on user|None
-401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None
+<h3 id="get-account-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The account|[Account](#schemaaccount)|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Account not found on user|None|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-oauth2 ( Scopes: account:read )
+OAuth2 ( Scopes: account:read )
 </aside>
-
-
-
-
-

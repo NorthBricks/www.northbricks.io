@@ -6,14 +6,14 @@ servers:
   - url: https://api.northbricks.io/api/v1
     description: Production
 tags:
-- name: transactions
+- name: Transactions
   description: Transaction operations
 paths:
   /banks/{bankId}/accounts/{accountId}/transactions:
     get:
       tags:
-      - transactions
-      summary: List transactions
+      - Transactions
+      summary: Get all transactions
       description: Returns all transactions for the user
       parameters:
         - name: bankId
@@ -51,8 +51,8 @@ paths:
   /banks/{bankId}/accounts/{accountId}/transactions/{transactionId}:
     get:
       tags:
-      - transactions
-      summary: Returns a transaction
+      - Transactions
+      summary: Get transaction
       description: Returns all information about a transaction
       parameters:
         - name: bankId
