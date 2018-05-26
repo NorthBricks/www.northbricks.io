@@ -36,6 +36,7 @@ node node_modules/widdershins/widdershins.js -y -n -s source/swagger/bank-auth.s
 node node_modules/widdershins/widdershins.js -y -n -s source/swagger/banks.swagger.yaml -o source/includes/_banks.swagger.md
 node node_modules/widdershins/widdershins.js -y -n -s source/swagger/accounts.swagger.yaml -o source/includes/_accounts.swagger.md
 node node_modules/widdershins/widdershins.js -y -n -s source/swagger/transactions.swagger.yaml -o source/includes/_transactions.swagger.md
+node node_modules/widdershins/widdershins.js -y -n -s source/swagger/payments.swagger.yaml -o source/includes/_payments.swagger.md
 ```
 
 Now remove the first section in the generated file(s).

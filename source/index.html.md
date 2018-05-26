@@ -16,6 +16,7 @@ includes:
   - banks.swagger
   - accounts.swagger
   - transactions.swagger
+  - payments.swagger
 
 search: true
 ---
