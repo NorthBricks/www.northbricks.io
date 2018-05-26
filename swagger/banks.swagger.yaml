@@ -6,14 +6,14 @@ servers:
   - url: https://api.northbricks.io/api/v1
     description: Production
 tags:
-- name: banks
+- name: Banks
   description: Bank operations
 paths:
   /banks:
     get:
       tags:
-      - banks
-      summary: Information about banks
+      - Banks
+      summary: Get all banks
       description: Returns available banks
       responses:
         200:
@@ -36,8 +36,8 @@ paths:
   /banks/{bankId}:
     get:
       tags:
-      - banks
-      summary: Information about the bank
+      - Banks
+      summary: Get bank
       description: Returns bank
       parameters:
         - name: bankId
@@ -66,8 +66,8 @@ paths:
   /me/banks:
     get:
       tags:
-      - banks
-      summary: Information about current user banks
+      - Banks
+      summary: Get all banks for current user
       description: Returns current user banks
       responses:
         200:
@@ -88,8 +88,8 @@ paths:
           - read
     post:
       tags:
-      - banks
-      summary: Adds bank to current user
+      - Banks
+      summary: Add bank to current user
       description: Adds the bank to current user
       requestBody:
         description: Bank to add.
@@ -123,7 +123,7 @@ paths:
   /me/banks/{bankId}:
     get:
       tags:
-      - banks
+      - Banks
       summary: Get current user bank
       description: Returns current user bank
       parameters:
@@ -151,8 +151,8 @@ paths:
           - read
     delete:
       tags:
-      - banks
-      summary: Removes bank from current user
+      - Banks
+      summary: Remove bank from current user
       description: Removes the bank from current user
       parameters:
         - name: bankId
