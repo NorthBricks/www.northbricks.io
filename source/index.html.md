@@ -24,7 +24,7 @@ search: true
 
 # Introduction
 
-Welcome to the Northbricks API! <a href="mailto:info@northbricks.com">Contact us</a> if you are interested in our API.
+Welcome to the Northbricks API! <a href="https://share.hsforms.com/1VMTAez9aTImjB25zLPieLg2p2p1" target="_blank">Contact us</a> if you are interested in our API.
 
 # Connecting to Northbricks API
 
