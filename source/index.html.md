@@ -26,6 +26,14 @@ search: true
 
 Welcome to the Northbricks API! <a href="https://share.hsforms.com/1VMTAez9aTImjB25zLPieLg2p2p1" target="_blank">Contact us</a> if you are interested in our API.
 
+# Postman collection
+
+You can use out Postman test collection to test the Northbricks API. It includes HTTP requests with sample headers and test data.
+
+Postman is a free REST test tool, you can download if from <a href="https://www.getpostman.com" target="_blank">here</a>. Save the content of the link below as a .json file and then import it in the tool as a test collection.
+
+[Download postman collection](northbricks-api.postman_collection.json)
+
 # Connecting to Northbricks API
 
 To be able to connect to the API you need to get an access token. After that you create a request header with the name `Authorization` and value `Bearer [access token]`.

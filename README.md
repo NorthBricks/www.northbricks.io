@@ -46,4 +46,5 @@ Now remove the first section in the generated file(s).
 These dependencies need to be installed to build and run on Ubuntu.
 ```sh
 sudo apt-get install nodejs npm zlib1g-dev ruby-full
+bundle install --path vendor/bundle
 ```

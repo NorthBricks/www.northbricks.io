@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "96aa1528-1510-4f39-8432-d494277d6e4d",
+		"name": "Northbricks API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get current user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/user",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank-auth",
+			"item": [
+				{
+					"name": "Authenticate to bank (run this request in a web browser)",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "queryParams",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "bearer",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId/auth",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"banks",
+								":bankId",
+								"auth"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": ""
+								}
+							]
+						},
+						"description": "Run this in a browser. It will not work in Postman."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banks",
+			"item": [
+				{
+					"name": "Get all banks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get bank",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all banks for current user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/banks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user bank",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"banks",
+								":bankId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add bank to current user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bankId\": \"string\"\n}"
+						},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/banks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove bank from current user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"me",
+								"banks",
+								":bankId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Get all accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"accounts"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get account",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"accounts",
+								":accountId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								},
+								{
+									"key": "accountId",
+									"value": "123-ABC"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Get all transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId/transactions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"accounts",
+								":accountId",
+								"transactions"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								},
+								{
+									"key": "accountId",
+									"value": "123-ABC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get transaction",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId/transactions/:transactionId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"accounts",
+								":accountId",
+								"transactions",
+								":transactionId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5756596743307264"
+								},
+								{
+									"key": "accountId",
+									"value": "123-ABC"
+								},
+								{
+									"key": "transactionId",
+									"value": "0123"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Get all payments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5707648880082944"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get payment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments/:paymentId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"payments",
+								":paymentId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5707648880082944"
+								},
+								{
+									"key": "paymentId",
+									"value": "36e34f6f-8a93-4b92-9752-b431fff27683"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"creditorAccount\": {\n    \"type\": \"IBAN\",\n    \"account\": \"FI6593857450293470\",\n    \"message\": \"Fika\"\n  },\n  \"debtorAccount\": {\n    \"type\": \"ACCOUNT_ID\",\n    \"account\": \"FI1511123500015653-EUR\",\n    \"message\": \"Fika\"\n  },\n  \"amount\": {\n    \"value\": 50.5,\n    \"currency\": \"EUR\"\n  }\n}"
+						},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"payments"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5707648880082944"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm payment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments/:paymentId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"northbricks",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banks",
+								":bankId",
+								"payments",
+								":paymentId"
+							],
+							"variable": [
+								{
+									"key": "bankId",
+									"value": "5707648880082944"
+								},
+								{
+									"key": "paymentId",
+									"value": "36e34f6f-8a93-4b92-9752-b431fff27683"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "02bc1952-1175-460e-acf3-3387abfc1163",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "40d19fbb-58a5-4e9d-bccd-22ff65058952",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
