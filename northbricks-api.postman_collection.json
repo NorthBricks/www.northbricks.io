@@ -45,26 +45,6 @@
 				{
 					"name": "Authenticate to bank (run this request in a web browser)",
 					"request": {
-						"auth": {
-							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "accessToken",
-									"value": "",
-									"type": "string"
-								},
-								{
-									"key": "addTokenTo",
-									"value": "queryParams",
-									"type": "string"
-								},
-								{
-									"key": "tokenType",
-									"value": "bearer",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"body": {},
@@ -637,7 +617,7 @@
 		"oauth2": [
 			{
 				"key": "accessToken",
-				"value": "",
+				"value": "aa8f435a-cc41-4630-8bc9-902998bb1cf6",
 				"type": "string"
 			},
 			{
