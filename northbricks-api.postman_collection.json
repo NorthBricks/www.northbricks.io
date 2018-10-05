@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "96aa1528-1510-4f39-8432-d494277d6e4d",
+		"_postman_id": "7f07dead-a647-47d4-a6c8-c1eaf2d10293",
 		"name": "Northbricks API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,7 +18,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.northbricks.io/api/v1/me/user",
 							"protocol": "https",
@@ -47,9 +50,12 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId/auth",
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bic/auth?access_token=aa8f435a-cc41-4630-8bc9-902998bb1cf6",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -61,13 +67,19 @@
 								"v1",
 								"me",
 								"banks",
-								":bankId",
+								":bic",
 								"auth"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "aa8f435a-cc41-4630-8bc9-902998bb1cf6"
+								}
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": ""
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								}
 							]
 						},
@@ -90,7 +102,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.northbricks.io/api/v1/banks",
 							"protocol": "https",
@@ -118,9 +133,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -131,12 +149,12 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId"
+								":bic"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								}
 							]
 						}
@@ -153,7 +171,10 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://api.northbricks.io/api/v1/me/banks",
 							"protocol": "https",
@@ -182,9 +203,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId",
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bic",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -196,12 +220,12 @@
 								"v1",
 								"me",
 								"banks",
-								":bankId"
+								":bic"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								}
 							]
 						}
@@ -220,7 +244,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"bankId\": \"string\"\n}"
+							"raw": "{\n  \"bic\": \"AAAABBCCDDD\"\n}"
 						},
 						"url": {
 							"raw": "https://api.northbricks.io/api/v1/me/banks",
@@ -250,9 +274,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/me/banks/:bankId",
+							"raw": "https://api.northbricks.io/api/v1/me/banks/:bic",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -264,12 +291,12 @@
 								"v1",
 								"me",
 								"banks",
-								":bankId"
+								":bic"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": ""
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								}
 							]
 						}
@@ -291,9 +318,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/accounts",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -304,13 +334,13 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"accounts"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								}
 							]
 						}
@@ -327,9 +357,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/accounts/:accountId",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -340,14 +373,14 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"accounts",
 								":accountId"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								},
 								{
 									"key": "accountId",
@@ -373,9 +406,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId/transactions",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/accounts/:accountId/transactions",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -386,19 +422,19 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"accounts",
 								":accountId",
 								"transactions"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								},
 								{
 									"key": "accountId",
-									"value": "123-ABC"
+									"value": "ABC-123"
 								}
 							]
 						}
@@ -415,9 +451,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/accounts/:accountId/transactions/:transactionId",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/accounts/:accountId/transactions/:transactionId",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -428,7 +467,7 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"accounts",
 								":accountId",
 								"transactions",
@@ -436,12 +475,12 @@
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5756596743307264"
+									"key": "bic",
+									"value": "AAAABBCCDDD"
 								},
 								{
 									"key": "accountId",
-									"value": "123-ABC"
+									"value": "ABC-123"
 								},
 								{
 									"key": "transactionId",
@@ -467,9 +506,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/payments",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -480,13 +522,13 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"payments"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5707648880082944"
+									"key": "bic",
+									"value": "NDEAFIHH"
 								}
 							]
 						}
@@ -503,9 +545,12 @@
 								"value": "application/json"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments/:paymentId",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/payments/:paymentId",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -516,18 +561,18 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"payments",
 								":paymentId"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5707648880082944"
+									"key": "bic",
+									"value": "NDEAFIHH"
 								},
 								{
 									"key": "paymentId",
-									"value": "36e34f6f-8a93-4b92-9752-b431fff27683"
+									"value": "f82fb9d6-8223-4dd7-b9a5-9e9931c1f6ee"
 								}
 							]
 						}
@@ -546,10 +591,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"creditorAccount\": {\n    \"type\": \"IBAN\",\n    \"account\": \"FI6593857450293470\",\n    \"message\": \"Fika\"\n  },\n  \"debtorAccount\": {\n    \"type\": \"ACCOUNT_ID\",\n    \"account\": \"FI1511123500015653-EUR\",\n    \"message\": \"Fika\"\n  },\n  \"amount\": {\n    \"value\": 50.5,\n    \"currency\": \"EUR\"\n  }\n}"
+							"raw": "{\n  \"creditorAccount\": {\n    \"type\": \"IBAN\",\n    \"account\": \"FI7473834510057469\",\n    \"message\": \"Fika\"\n  },\n  \"debtorAccount\": {\n    \"type\": \"ACCOUNT_ID\",\n    \"account\": \"FI6593857450293470-EUR\",\n    \"message\": \"Fika\"\n  },\n  \"amount\": {\n    \"value\": 50.5,\n    \"currency\": \"EUR\"\n  }\n}"
 						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/payments",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -560,13 +605,13 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"payments"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5707648880082944"
+									"key": "bic",
+									"value": "NDEAFIHH"
 								}
 							]
 						}
@@ -578,9 +623,12 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://api.northbricks.io/api/v1/banks/:bankId/payments/:paymentId",
+							"raw": "https://api.northbricks.io/api/v1/banks/:bic/payments/:paymentId",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -591,18 +639,18 @@
 								"api",
 								"v1",
 								"banks",
-								":bankId",
+								":bic",
 								"payments",
 								":paymentId"
 							],
 							"variable": [
 								{
-									"key": "bankId",
-									"value": "5707648880082944"
+									"key": "bic",
+									"value": "NDEAFIHH"
 								},
 								{
 									"key": "paymentId",
-									"value": "36e34f6f-8a93-4b92-9752-b431fff27683"
+									"value": "04ae9238-42af-4e3a-a513-a923d8575e3a"
 								}
 							]
 						}
