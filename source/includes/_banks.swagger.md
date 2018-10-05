@@ -17,7 +17,6 @@ curl -X GET https://api.northbricks.io/api/v1/banks \
 ```http
 GET https://api.northbricks.io/api/v1/banks HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -42,7 +41,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -142,6 +141,8 @@ func main() {
 
 `GET /banks`
 
+*Get all banks*
+
 Returns available banks
 
 > Example responses
@@ -152,7 +153,7 @@ Returns available banks
 {
   "banks": [
     {
-      "id": "string",
+      "bic": "string",
       "shortName": "string",
       "fullName": "string",
       "logo": "string",
@@ -176,7 +177,7 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» banks|[[Bank](#schemabank)]|false|none|none|
-|»» id|string|false|none|none|
+|»» bic|string|false|none|none|
 |»» shortName|string|false|none|none|
 |»» fullName|string|false|none|none|
 |»» logo|string|false|none|none|
@@ -193,16 +194,15 @@ OAuth2 ( Scopes: read )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId} \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bic} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId} HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bic} HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -215,7 +215,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}',
+  url: 'https://api.northbricks.io/api/v1/banks/{bic}',
   method: 'get',
 
   headers: headers,
@@ -227,7 +227,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -235,7 +235,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}',
+fetch('https://api.northbricks.io/api/v1/banks/{bic}',
 {
   method: 'GET',
 
@@ -258,7 +258,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}',
   params: {
   }, headers: headers
 
@@ -273,7 +273,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}', params={
 
 }, headers = headers)
 
@@ -282,7 +282,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bic}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -315,7 +315,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bic}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -325,7 +325,9 @@ func main() {
 
 ```
 
-`GET /banks/{bankId}`
+`GET /banks/{bic}`
+
+*Get bank*
 
 Returns bank
 
@@ -333,7 +335,7 @@ Returns bank
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank to get.|
+|bic|path|string|true|BIC of the bank to get.|
 
 > Example responses
 
@@ -341,7 +343,7 @@ Returns bank
 
 ```json
 {
-  "id": "string",
+  "bic": "string",
   "shortName": "string",
   "fullName": "string",
   "logo": "string",
@@ -354,7 +356,7 @@ Returns bank
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bank|[Bank](#schemabank)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid BIC|None|
 |401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None|
 
@@ -378,7 +380,6 @@ curl -X GET https://api.northbricks.io/api/v1/me/banks \
 ```http
 GET https://api.northbricks.io/api/v1/me/banks HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -403,7 +404,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -503,6 +504,8 @@ func main() {
 
 `GET /me/banks`
 
+*Get all banks for current user*
+
 Returns current user banks
 
 > Example responses
@@ -513,7 +516,7 @@ Returns current user banks
 {
   "banks": [
     {
-      "id": "string",
+      "bic": "string",
       "shortName": "string",
       "fullName": "string",
       "logo": "string",
@@ -537,7 +540,7 @@ Status Code **200**
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |» banks|[[Bank](#schemabank)]|false|none|none|
-|»» id|string|false|none|none|
+|»» bic|string|false|none|none|
 |»» shortName|string|false|none|none|
 |»» fullName|string|false|none|none|
 |»» logo|string|false|none|none|
@@ -587,9 +590,9 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 const inputBody = '{
-  "bankId": "string"
+  "bic": "string"
 }';
 const headers = {
   'Content-Type':'application/json',
@@ -689,13 +692,15 @@ func main() {
 
 `POST /me/banks`
 
+*Add bank to current user*
+
 Adds the bank to current user
 
 > Body parameter
 
 ```json
 {
-  "bankId": "string"
+  "bic": "string"
 }
 ```
 
@@ -704,7 +709,7 @@ Adds the bank to current user
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|object|false|Bank to add.|
-|» bankId|body|string|false|none|
+|» bic|body|string|false|none|
 
 <h3 id="add-bank-to-current-user-responses">Responses</h3>
 
@@ -733,16 +738,15 @@ OAuth2 ( Scopes: read )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/me/banks/{bankId} \
+curl -X GET https://api.northbricks.io/api/v1/me/banks/{bic} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/me/banks/{bankId} HTTP/1.1
+GET https://api.northbricks.io/api/v1/me/banks/{bic} HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -755,7 +759,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
+  url: 'https://api.northbricks.io/api/v1/me/banks/{bic}',
   method: 'get',
 
   headers: headers,
@@ -767,7 +771,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -775,7 +779,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}',
+fetch('https://api.northbricks.io/api/v1/me/banks/{bic}',
 {
   method: 'GET',
 
@@ -798,7 +802,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
+result = RestClient.get 'https://api.northbricks.io/api/v1/me/banks/{bic}',
   params: {
   }, headers: headers
 
@@ -813,7 +817,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/me/banks/{bankId}', params={
+r = requests.get('https://api.northbricks.io/api/v1/me/banks/{bic}', params={
 
 }, headers = headers)
 
@@ -822,7 +826,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bankId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bic}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -855,7 +859,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/me/banks/{bankId}", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/me/banks/{bic}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -865,7 +869,9 @@ func main() {
 
 ```
 
-`GET /me/banks/{bankId}`
+`GET /me/banks/{bic}`
+
+*Get current user bank*
 
 Returns current user bank
 
@@ -873,7 +879,7 @@ Returns current user bank
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank to get.|
+|bic|path|string|true|BIC of the bank to get.|
 
 > Example responses
 
@@ -881,7 +887,7 @@ Returns current user bank
 
 ```json
 {
-  "id": "string",
+  "bic": "string",
   "shortName": "string",
   "fullName": "string",
   "logo": "string",
@@ -894,7 +900,7 @@ Returns current user bank
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Current user bank|[Bank](#schemabank)|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid BIC|None|
 |401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None|
 
@@ -909,13 +915,13 @@ OAuth2 ( Scopes: read )
 
 ```shell
 # You can also use wget
-curl -X DELETE https://api.northbricks.io/api/v1/me/banks/{bankId} \
+curl -X DELETE https://api.northbricks.io/api/v1/me/banks/{bic} \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-DELETE https://api.northbricks.io/api/v1/me/banks/{bankId} HTTP/1.1
+DELETE https://api.northbricks.io/api/v1/me/banks/{bic} HTTP/1.1
 Host: api.northbricks.io
 
 ```
@@ -927,7 +933,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
+  url: 'https://api.northbricks.io/api/v1/me/banks/{bic}',
   method: 'delete',
 
   headers: headers,
@@ -939,14 +945,14 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Authorization':'Bearer {access-token}'
 
 };
 
-fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}',
+fetch('https://api.northbricks.io/api/v1/me/banks/{bic}',
 {
   method: 'DELETE',
 
@@ -968,7 +974,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.delete 'https://api.northbricks.io/api/v1/me/banks/{bankId}',
+result = RestClient.delete 'https://api.northbricks.io/api/v1/me/banks/{bic}',
   params: {
   }, headers: headers
 
@@ -982,7 +988,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.delete('https://api.northbricks.io/api/v1/me/banks/{bankId}', params={
+r = requests.delete('https://api.northbricks.io/api/v1/me/banks/{bic}', params={
 
 }, headers = headers)
 
@@ -991,7 +997,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bankId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bic}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("DELETE");
 int responseCode = con.getResponseCode();
@@ -1023,7 +1029,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("DELETE", "https://api.northbricks.io/api/v1/me/banks/{bankId}", data)
+    req, err := http.NewRequest("DELETE", "https://api.northbricks.io/api/v1/me/banks/{bic}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -1033,7 +1039,9 @@ func main() {
 
 ```
 
-`DELETE /me/banks/{bankId}`
+`DELETE /me/banks/{bic}`
+
+*Remove bank from current user*
 
 Removes the bank from current user
 
@@ -1041,14 +1049,14 @@ Removes the bank from current user
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank to delete.|
+|bic|path|string|true|BIC of the bank to delete.|
 
 <h3 id="remove-bank-from-current-user-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |204|[No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)|Bank removed from user|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid bankId|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid BIC|None|
 |401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None|
 

@@ -17,7 +17,6 @@ curl -X GET https://api.northbricks.io/api/v1/me/user \
 ```http
 GET https://api.northbricks.io/api/v1/me/user HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -42,7 +41,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -141,6 +140,8 @@ func main() {
 ```
 
 `GET /me/user`
+
+*Get current user*
 
 Returns user information
 

@@ -8,16 +8,15 @@ Account operations
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bic}/accounts \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bic}/accounts HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -30,7 +29,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
+  url: 'https://api.northbricks.io/api/v1/banks/{bic}/accounts',
   method: 'get',
 
   headers: headers,
@@ -42,7 +41,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -50,7 +49,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
+fetch('https://api.northbricks.io/api/v1/banks/{bic}/accounts',
 {
   method: 'GET',
 
@@ -73,7 +72,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}/accounts',
   params: {
   }, headers: headers
 
@@ -88,7 +87,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}/accounts', params={
 
 }, headers = headers)
 
@@ -97,7 +96,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bic}/accounts");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -130,7 +129,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bic}/accounts", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -140,7 +139,9 @@ func main() {
 
 ```
 
-`GET /banks/{bankId}/accounts`
+`GET /banks/{bic}/accounts`
+
+*Get all accounts*
 
 Returns accounts in a bank for the user
 
@@ -148,7 +149,7 @@ Returns accounts in a bank for the user
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank.|
+|bic|path|string|true|BIC of the bank.|
 
 > Example responses
 
@@ -207,16 +208,15 @@ OAuth2 ( Scopes: account:read )
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId} \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId} HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId} HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -229,7 +229,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
+  url: 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}',
   method: 'get',
 
   headers: headers,
@@ -241,7 +241,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -249,7 +249,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
+fetch('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}',
 {
   method: 'GET',
 
@@ -272,7 +272,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}',
   params: {
   }, headers: headers
 
@@ -287,7 +287,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}', params={
 
 }, headers = headers)
 
@@ -296,7 +296,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -329,7 +329,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -339,7 +339,9 @@ func main() {
 
 ```
 
-`GET /banks/{bankId}/accounts/{accountId}`
+`GET /banks/{bic}/accounts/{accountId}`
+
+*Get account*
 
 Returns the account
 
@@ -347,7 +349,7 @@ Returns the account
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank.|
+|bic|path|string|true|BIC of the bank.|
 |accountId|path|string|true|Id of the account.|
 
 > Example responses

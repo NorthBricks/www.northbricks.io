@@ -8,16 +8,15 @@ Transaction operations
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -30,7 +29,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions',
+  url: 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions',
   method: 'get',
 
   headers: headers,
@@ -42,7 +41,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -50,7 +49,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions',
+fetch('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions',
 {
   method: 'GET',
 
@@ -73,7 +72,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions',
   params: {
   }, headers: headers
 
@@ -88,7 +87,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions', params={
 
 }, headers = headers)
 
@@ -97,7 +96,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -130,7 +129,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -140,7 +139,9 @@ func main() {
 
 ```
 
-`GET /banks/{bankId}/accounts/{accountId}/transactions`
+`GET /banks/{bic}/accounts/{accountId}/transactions`
+
+*Get all transactions*
 
 Returns all transactions for the user
 
@@ -148,7 +149,7 @@ Returns all transactions for the user
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|ID of bank|
+|bic|path|string|true|BIC of bank|
 |accountId|path|string|true|ID of account|
 
 > Example responses
@@ -161,8 +162,8 @@ Returns all transactions for the user
     {
       "id": "string",
       "description": "string",
-      "bookingDate": "2018-05-26T21:48:25Z",
-      "valueDate": "2018-05-26T21:48:25Z",
+      "bookingDate": "2018-10-05T15:25:22Z",
+      "valueDate": "2018-10-05T15:25:22Z",
       "amount": {
         "value": 0,
         "currency": "string"
@@ -205,22 +206,21 @@ To perform this operation, you must be authenticated by means of one of the foll
 OAuth2 ( Scopes: transaction:read )
 </aside>
 
-## Get transaction
+## get__banks_{bic}_accounts_{accountId}_transactions_{transactionId}
 
 > Code samples
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId} \
+curl -X GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId} \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId} HTTP/1.1
+GET https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId} HTTP/1.1
 Host: api.northbricks.io
-
 Accept: application/json
 
 ```
@@ -233,7 +233,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}',
+  url: 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}',
   method: 'get',
 
   headers: headers,
@@ -245,7 +245,7 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Accept':'application/json',
@@ -253,7 +253,7 @@ const headers = {
 
 };
 
-fetch('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}',
+fetch('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}',
 {
   method: 'GET',
 
@@ -276,7 +276,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}',
+result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}',
   params: {
   }, headers: headers
 
@@ -291,7 +291,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}', params={
+r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}', params={
 
 }, headers = headers)
 
@@ -300,7 +300,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}");
+URL obj = new URL("https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -333,7 +333,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bankId}/accounts/{accountId}/transactions/{transactionId}", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/banks/{bic}/accounts/{accountId}/transactions/{transactionId}", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -343,7 +343,9 @@ func main() {
 
 ```
 
-`GET /banks/{bankId}/accounts/{accountId}/transactions/{transactionId}`
+`GET /banks/{bic}/accounts/{accountId}/transactions/{transactionId}`
+
+*Get transaction*
 
 Returns all information about a transaction
 
@@ -351,7 +353,7 @@ Returns all information about a transaction
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|ID of bank|
+|bic|path|string|true|BIC of bank|
 |accountId|path|string|true|ID of account|
 |transactionId|path|string|true|ID of transaction|
 
@@ -363,8 +365,8 @@ Returns all information about a transaction
 {
   "id": "string",
   "description": "string",
-  "bookingDate": "2018-05-26T21:48:25Z",
-  "valueDate": "2018-05-26T21:48:25Z",
+  "bookingDate": "2018-10-05T15:25:22Z",
+  "valueDate": "2018-10-05T15:25:22Z",
   "amount": {
     "value": 0,
     "currency": "string"

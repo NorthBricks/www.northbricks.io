@@ -33,17 +33,17 @@ paths:
         - OAuth2:
           - read
 
-  /banks/{bankId}:
+  /banks/{bic}:
     get:
       tags:
       - Banks
       summary: Get bank
       description: Returns bank
       parameters:
-        - name: bankId
+        - name: bic
           in: path
           required: true
-          description: Id of the bank to get.
+          description: BIC of the bank to get.
           schema:
             type: string
       responses:
@@ -54,7 +54,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Bank"
         400:
-          description: Invalid bankId
+          description: Invalid BIC
         401:
           description: Wrong credentials
         404:
@@ -98,7 +98,7 @@ paths:
             schema:
               type: object
               properties:
-                bankId:
+                bic:
                   type: string
       responses:
         201:
@@ -120,17 +120,17 @@ paths:
         - OAuth2:
           - read
 
-  /me/banks/{bankId}:
+  /me/banks/{bic}:
     get:
       tags:
       - Banks
       summary: Get current user bank
       description: Returns current user bank
       parameters:
-        - name: bankId
+        - name: bic
           in: path
           required: true
-          description: Id of the bank to get.
+          description: BIC of the bank to get.
           schema:
             type: string
       responses:
@@ -141,7 +141,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/Bank"
         400:
-          description: Invalid bankId
+          description: Invalid BIC
         401:
           description: Wrong credentials
         404:
@@ -155,17 +155,17 @@ paths:
       summary: Remove bank from current user
       description: Removes the bank from current user
       parameters:
-        - name: bankId
+        - name: bic
           in: path
           required: true
-          description: Id of the bank to delete.
+          description: BIC of the bank to delete.
           schema:
             type: string
       responses:
         204:
           description: Bank removed from user
         400:
-          description: Invalid bankId
+          description: Invalid BIC
         401:
           description: Wrong credentials
         404:
@@ -179,7 +179,7 @@ components:
     Bank:
       type: object
       properties:
-        id:
+        bic:
           type: string
         shortName:
           type: string

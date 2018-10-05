@@ -9,16 +9,16 @@ tags:
 - name: Transactions
   description: Transaction operations
 paths:
-  /banks/{bankId}/accounts/{accountId}/transactions:
+  /banks/{bic}/accounts/{accountId}/transactions:
     get:
       tags:
       - Transactions
       summary: Get all transactions
       description: Returns all transactions for the user
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string
@@ -48,16 +48,16 @@ paths:
         - OAuth2:
           - "transaction:read"
 
-  /banks/{bankId}/accounts/{accountId}/transactions/{transactionId}:
+  /banks/{bic}/accounts/{accountId}/transactions/{transactionId}:
     get:
       tags:
       - Transactions
       summary: Get transaction
       description: Returns all information about a transaction
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string

@@ -8,13 +8,13 @@ Bank operations
 
 ```shell
 # You can also use wget
-curl -X GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string \
+curl -X GET https://api.northbricks.io/api/v1/me/banks/{bic}/auth?access_token=string \
   -H 'Authorization: Bearer {access-token}'
 
 ```
 
 ```http
-GET https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string HTTP/1.1
+GET https://api.northbricks.io/api/v1/me/banks/{bic}/auth?access_token=string HTTP/1.1
 Host: api.northbricks.io
 
 ```
@@ -26,7 +26,7 @@ var headers = {
 };
 
 $.ajax({
-  url: 'https://api.northbricks.io/api/v1/me/banks/{bankId}/auth',
+  url: 'https://api.northbricks.io/api/v1/me/banks/{bic}/auth',
   method: 'get',
   data: '?access_token=string',
   headers: headers,
@@ -38,14 +38,14 @@ $.ajax({
 ```
 
 ```javascript--nodejs
-const request = require('node-fetch');
+const fetch = require('node-fetch');
 
 const headers = {
   'Authorization':'Bearer {access-token}'
 
 };
 
-fetch('https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string',
+fetch('https://api.northbricks.io/api/v1/me/banks/{bic}/auth?access_token=string',
 {
   method: 'GET',
 
@@ -67,7 +67,7 @@ headers = {
   'Authorization' => 'Bearer {access-token}'
 }
 
-result = RestClient.get 'https://api.northbricks.io/api/v1/me/banks/{bankId}/auth',
+result = RestClient.get 'https://api.northbricks.io/api/v1/me/banks/{bic}/auth',
   params: {
   'access_token' => 'string'
 }, headers: headers
@@ -82,7 +82,7 @@ headers = {
   'Authorization': 'Bearer {access-token}'
 }
 
-r = requests.get('https://api.northbricks.io/api/v1/me/banks/{bankId}/auth', params={
+r = requests.get('https://api.northbricks.io/api/v1/me/banks/{bic}/auth', params={
   'access_token': 'string'
 }, headers = headers)
 
@@ -91,7 +91,7 @@ print r.json()
 ```
 
 ```java
-URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bankId}/auth?access_token=string");
+URL obj = new URL("https://api.northbricks.io/api/v1/me/banks/{bic}/auth?access_token=string");
 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 con.setRequestMethod("GET");
 int responseCode = con.getResponseCode();
@@ -123,7 +123,7 @@ func main() {
     }
 
     data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/me/banks/{bankId}/auth", data)
+    req, err := http.NewRequest("GET", "https://api.northbricks.io/api/v1/me/banks/{bic}/auth", data)
     req.Header = headers
 
     client := &http.Client{}
@@ -133,7 +133,9 @@ func main() {
 
 ```
 
-`GET /me/banks/{bankId}/auth`
+`GET /me/banks/{bic}/auth`
+
+*Authenticate to bank*
 
 Open this URL in a browser. User authenticates and gives consent to Northbricks to access their assets.
 
@@ -141,7 +143,7 @@ Open this URL in a browser. User authenticates and gives consent to Northbricks 
 
 |Parameter|In|Type|Required|Description|
 |---|---|---|---|---|
-|bankId|path|string|true|Id of the bank to get.|
+|bic|path|string|true|BIC of the bank to get.|
 |access_token|query|string|true|Access token to Northbricks.|
 
 <h3 id="authentication-to-bank-responses">Responses</h3>

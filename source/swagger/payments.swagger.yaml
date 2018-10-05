@@ -10,16 +10,16 @@ tags:
   description: Payment operations
 paths:
 
-  /banks/{bankId}/payments:
+  /banks/{bic}/payments:
     get:
       tags:
       - Payments
       summary: Get all payments
       description: Returns all payments for the user
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string
@@ -53,9 +53,9 @@ paths:
       summary: Initiate payment
       description: Initiates a payment
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string
@@ -122,16 +122,16 @@ paths:
         - OAuth2:
           - "payment:write"
 
-  /banks/{bankId}/payments/{paymentId}:
+  /banks/{bic}/payments/{paymentId}:
     get:
       tags:
       - Payments
       summary: Get payment
       description: Returns all information about a payment
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string
@@ -166,9 +166,9 @@ paths:
       summary: Confirm payment
       description: Confirm a previously initialized payment
       parameters:
-        - name: bankId
+        - name: bic
           in: path
-          description: ID of bank
+          description: BIC of bank
           required: true
           schema:
             type: string

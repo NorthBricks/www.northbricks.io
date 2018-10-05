@@ -9,17 +9,17 @@ tags:
 - name: Accounts
   description: Account operations
 paths:
-  /banks/{bankId}/accounts:
+  /banks/{bic}/accounts:
     get:
       tags:
       - Accounts
       summary: Get all accounts
       description: Returns accounts in a bank for the user
       parameters:
-        - name: bankId
+        - name: bic
           in: path
           required: true
-          description: Id of the bank.
+          description: BIC of the bank.
           schema:
             type: string
       responses:
@@ -42,17 +42,17 @@ paths:
         - OAuth2:
           - "account:read"
 
-  /banks/{bankId}/accounts/{accountId}:
+  /banks/{bic}/accounts/{accountId}:
     get:
       tags:
       - Accounts
       summary: Get account
       description: Returns the account
       parameters:
-        - name: bankId
+        - name: bic
           in: path
           required: true
-          description: Id of the bank.
+          description: BIC of the bank.
           schema:
             type: string
         - name: accountId
