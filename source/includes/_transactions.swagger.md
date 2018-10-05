@@ -206,7 +206,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 OAuth2 ( Scopes: transaction:read )
 </aside>
 
-## get__banks_{bic}_accounts_{accountId}_transactions_{transactionId}
+## Get transaction
 
 > Code samples
 
