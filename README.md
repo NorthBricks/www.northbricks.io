@@ -1,5 +1,5 @@
 # Northbricks API Documentation website
-[![Build Status](https://travis-ci.org/NorthBricks/www.northbricks.com.svg)](https://travis-ci.org/NorthBricks/www.northbricks.com)
+[![Build Status](https://travis-ci.org/NorthBricks/www.northbricks.com.svg)](https://travis-ci.org/NorthBricks/www.northbricks.io)
 
 This is [Northbricks website for developers](http://www.northbricks.io).
 
