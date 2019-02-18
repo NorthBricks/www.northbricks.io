@@ -1,4 +1,4 @@
-<h1 id="Northbricks-Bank-API-Banks">Banks</h1>
+<h1 id="northbricks-bank-api-banks">Banks</h1>
 
 Bank operations
 
@@ -9,8 +9,7 @@ Bank operations
 ```shell
 # You can also use wget
 curl -X GET https://api.northbricks.io/api/v1/banks \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer {access-token}'
+  -H 'Accept: application/json'
 
 ```
 
@@ -23,8 +22,7 @@ Accept: application/json
 
 ```javascript
 var headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
+  'Accept':'application/json'
 
 };
 
@@ -44,8 +42,7 @@ $.ajax({
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
+  'Accept':'application/json'
 
 };
 
@@ -68,8 +65,7 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer {access-token}'
+  'Accept' => 'application/json'
 }
 
 result = RestClient.get 'https://api.northbricks.io/api/v1/banks',
@@ -83,8 +79,7 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {access-token}'
+  'Accept': 'application/json'
 }
 
 r = requests.get('https://api.northbricks.io/api/v1/banks', params={
@@ -124,7 +119,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -168,7 +162,6 @@ Returns available banks
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Available banks|Inline|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 
 <h3 id="get-all-banks-responseschema">Response Schema</h3>
 
@@ -183,9 +176,8 @@ Status Code **200**
 |»» logo|string|false|none|none|
 |»» website|string|false|none|none|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-OAuth2 ( Scopes: read )
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 ## Get bank
@@ -195,8 +187,7 @@ OAuth2 ( Scopes: read )
 ```shell
 # You can also use wget
 curl -X GET https://api.northbricks.io/api/v1/banks/{bic} \
-  -H 'Accept: application/json' \
-  -H 'Authorization: Bearer {access-token}'
+  -H 'Accept: application/json'
 
 ```
 
@@ -209,8 +200,7 @@ Accept: application/json
 
 ```javascript
 var headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
+  'Accept':'application/json'
 
 };
 
@@ -230,8 +220,7 @@ $.ajax({
 const fetch = require('node-fetch');
 
 const headers = {
-  'Accept':'application/json',
-  'Authorization':'Bearer {access-token}'
+  'Accept':'application/json'
 
 };
 
@@ -254,8 +243,7 @@ require 'rest-client'
 require 'json'
 
 headers = {
-  'Accept' => 'application/json',
-  'Authorization' => 'Bearer {access-token}'
+  'Accept' => 'application/json'
 }
 
 result = RestClient.get 'https://api.northbricks.io/api/v1/banks/{bic}',
@@ -269,8 +257,7 @@ p JSON.parse(result)
 ```python
 import requests
 headers = {
-  'Accept': 'application/json',
-  'Authorization': 'Bearer {access-token}'
+  'Accept': 'application/json'
 }
 
 r = requests.get('https://api.northbricks.io/api/v1/banks/{bic}', params={
@@ -310,7 +297,6 @@ func main() {
 
     headers := map[string][]string{
         "Accept": []string{"application/json"},
-        "Authorization": []string{"Bearer {access-token}"},
         
     }
 
@@ -333,7 +319,7 @@ Returns bank
 
 <h3 id="get-bank-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |bic|path|string|true|BIC of the bank to get.|
 
@@ -357,12 +343,10 @@ Returns bank
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Bank|[Bank](#schemabank)|
 |400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|Invalid BIC|None|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Wrong credentials|None|
 |404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Bank not found|None|
 
-<aside class="warning">
-To perform this operation, you must be authenticated by means of one of the following methods:
-OAuth2 ( Scopes: read )
+<aside class="success">
+This operation does not require authentication
 </aside>
 
 ## Get all banks for current user
@@ -706,7 +690,7 @@ Adds the bank to current user
 
 <h3 id="add-bank-to-current-user-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |body|body|object|false|Bank to add.|
 |» bic|body|string|false|none|
@@ -877,7 +861,7 @@ Returns current user bank
 
 <h3 id="get-current-user-bank-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |bic|path|string|true|BIC of the bank to get.|
 
@@ -1047,7 +1031,7 @@ Removes the bank from current user
 
 <h3 id="remove-bank-from-current-user-parameters">Parameters</h3>
 
-|Parameter|In|Type|Required|Description|
+|Name|In|Type|Required|Description|
 |---|---|---|---|---|
 |bic|path|string|true|BIC of the bank to delete.|
 

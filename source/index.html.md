@@ -12,12 +12,12 @@ language_tabs:
   - go: Go
 
 includes:
-  - user.swagger
-  - bank-auth.swagger
   - banks.swagger
+  - bank-auth.swagger
   - accounts.swagger
   - transactions.swagger
   - payments.swagger
+  - user.swagger
 
 search: true
 ---
