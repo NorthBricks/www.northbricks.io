@@ -27,11 +27,6 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Bank"
-        401:
-          description: Wrong credentials
-      security:
-        - OAuth2:
-          - read
 
   /banks/{bic}:
     get:
@@ -55,13 +50,8 @@ paths:
                 $ref: "#/components/schemas/Bank"
         400:
           description: Invalid BIC
-        401:
-          description: Wrong credentials
         404:
           description: Bank not found
-      security:
-        - OAuth2:
-          - read
 
   /me/banks:
     get:
