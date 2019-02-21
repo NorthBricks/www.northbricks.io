@@ -175,6 +175,8 @@ components:
           type: string
         fullName:
           type: string
+        country:
+          type: string
         logo:
           type: string
         website:
