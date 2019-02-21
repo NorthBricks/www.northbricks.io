@@ -150,6 +150,7 @@ Returns available banks
       "bic": "string",
       "shortName": "string",
       "fullName": "string",
+      "country": "string",
       "logo": "string",
       "website": "string"
     }
@@ -173,6 +174,7 @@ Status Code **200**
 |»» bic|string|false|none|none|
 |»» shortName|string|false|none|none|
 |»» fullName|string|false|none|none|
+|»» country|string|false|none|none|
 |»» logo|string|false|none|none|
 |»» website|string|false|none|none|
 
@@ -332,6 +334,7 @@ Returns bank
   "bic": "string",
   "shortName": "string",
   "fullName": "string",
+  "country": "string",
   "logo": "string",
   "website": "string"
 }
@@ -503,6 +506,7 @@ Returns current user banks
       "bic": "string",
       "shortName": "string",
       "fullName": "string",
+      "country": "string",
       "logo": "string",
       "website": "string"
     }
@@ -527,6 +531,7 @@ Status Code **200**
 |»» bic|string|false|none|none|
 |»» shortName|string|false|none|none|
 |»» fullName|string|false|none|none|
+|»» country|string|false|none|none|
 |»» logo|string|false|none|none|
 |»» website|string|false|none|none|
 
@@ -874,6 +879,7 @@ Returns current user bank
   "bic": "string",
   "shortName": "string",
   "fullName": "string",
+  "country": "string",
   "logo": "string",
   "website": "string"
 }
