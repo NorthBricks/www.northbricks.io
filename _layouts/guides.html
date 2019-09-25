@@ -2,26 +2,29 @@
 layout: default
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+<article class="post">
 
-  {{ content }}
+  <header class="post__header">
+    <h1 class="post__title">{{ page.title | escape }}</h1>
+  </header>
 
-  {%- if site.posts.size > 0 -%}
-    <ul class="cards-container">
-    {%- for post in site.posts -%}
-        <li class="card card--3-col">
-            <a href="{{ post.url | relative_url }}">
-                <div class="card__container">
-                    <h2>{{ post.title | escape }}</h2>
-                    <p>{{ post.excerpt }}</p>
-                </div>
-            </a>
-        </li>
-    {%- endfor -%}
-    </ul>
-  {%- endif -%}
+  <div class="post__content">
+    {{ content }}
+  </div>
 
-</div>
+</article>
+
+{%- if site.posts.size > 0 -%}
+  <ul class="cards-container">
+  {%- for post in site.posts -%}
+      <li class="card card--3-col">
+          <a href="{{ post.url | relative_url }}">
+              <div class="card__container">
+                  <h2>{{ post.title | escape }}</h2>
+                  <p>{{ post.excerpt }}</p>
+              </div>
+          </a>
+      </li>
+  {%- endfor -%}
+  </ul>
+{%- endif -%}

@@ -1,4 +1,0 @@
-I"´<p>Learn how to add a bank to a user and let the user authenticate with the bank.
-<!--more-->
-First add the bank to the user with <a href="/#post-me-banks">POST /me/banks</a>.</p>
-:ET
