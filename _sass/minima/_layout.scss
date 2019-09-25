@@ -1,0 +1,204 @@
+
+@include media-query($on-laptop) {
+    .discover__banner-text {
+        font-size: 1rem;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}
+
+.header {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    background-color: #2E3336;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    display: flex;
+    &::after {
+        content: '';
+        flex: 1;
+    }
+    &__logo {
+        flex: 1;
+        text-align: left;
+        margin-left: 10px;
+    }
+}
+
+.content {
+    padding: 80px 10px;
+    overflow-wrap: break-word;
+}
+
+/**
+ * Posts
+ */
+.post {
+    &__header {
+        margin-bottom: $spacing-unit;
+    }
+    &__title {
+        @include relative-font-size(2.625);
+        letter-spacing: -1px;
+        line-height: 1;
+
+        @include media-query($on-laptop) {
+            @include relative-font-size(2.25);
+        }
+    }
+    &__content {
+        margin-bottom: $spacing-unit;
+        h2 {
+            @include relative-font-size(2);
+            @include media-query($on-laptop) {
+                @include relative-font-size(1.75);
+            }
+        }
+        h3 {
+            @include relative-font-size(1.625);
+            @include media-query($on-laptop) {
+                @include relative-font-size(1.375);
+            }
+        }
+        h4 {
+            @include relative-font-size(1.25);
+            @include media-query($on-laptop) {
+                @include relative-font-size(1.125);
+            }
+        }
+        > p:first-child {
+            @include relative-font-size(1.1);
+        }
+    }
+}
+
+.form__input {
+    border-radius: 2px;
+    border: 1px solid rgb(197, 217, 232);
+    background: #fff;
+    color: rgb(51,51,51);
+    transition: border .2s;
+    outline: none;
+    font-size: 13px;
+    padding: 6px 5px;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: rgb(255, 121, 26);
+    color: white;
+    font-weight: 600;
+    padding: 6px 16px;
+    border: 1px solid rgb(255, 121, 26);
+    border-radius: 2px;
+    outline: 0;
+    white-space: nowrap;
+}
+
+/**
+ * Start page
+ */
+a.discover__banner-link {
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+}
+.discover {
+    &__banner {
+        width: 100%;
+        height: 35vh;
+        padding-top: 150px;
+        background: linear-gradient(45deg,rgb(40, 40, 70), #00A4EE), center top no-repeat;
+        background-size: cover;
+        color: #fff;
+        display: inline-table;
+        ~ .content {
+            padding-top: 40px;
+        }
+    }
+    &__banner-text {
+        position: absolute;
+        left: 0;
+        top: 120px;
+        right: 0;
+        height: calc(50% - 60px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        @include relative-font-size(2);
+    }
+}
+
+.cards-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    @include media-query($on-laptop) {
+        display: block;
+    }
+    a {
+        color: $text-color;
+        text-decoration: none;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    list-style: none;
+    &:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    &__container {
+        padding: 2px 16px;
+        text-align: center;
+        @include media-query($on-laptop) {
+            flex: 2;
+            text-align: left;
+        }
+    }
+    &__img {
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        font-size: 10rem;
+        color: #ccc;
+        text-align: center;
+        padding: 10px 0;
+        @include media-query($on-laptop) {
+            flex: 1;
+        }
+    }
+    &--3-col {
+        // width: 300px;
+        // float: left;
+        // margin: 0 10px;
+        flex: 1;
+        padding: 16px;
+        margin: 10px;
+        max-width: 300px;
+        @include media-query($on-laptop) {
+            float: left;
+            width: 100%;
+            max-width: none;
+            margin: 10px 0;
+            display: flex;
+            padding: 10px 0;
+        }
+    }
+}

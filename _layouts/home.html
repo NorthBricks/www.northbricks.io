@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+<body>
+
+<section class="discover__banner">
+  <div class="discover__banner-text">
+    <h1>{{ page.bannerTitle }}</h1>
+    <p>{{ page.bannerText }}</p>
+    <a href="/apis" class="discover__banner-link">Get started</a>
+    <br>
+    <br>
+  </div>
+</section>
+
+{%- include header.html -%}
+
+<main class="content">
+
+  <div class="cards-container">
+    <a href="/apis" class="card card--3-col">
+      <i class="far fa-file-code card__img"></i>
+      <div class="card__container">
+        <h2>API reference</h2>
+        <p>Check out our full API Reference.</p>
+      </div>
+    </a>
+
+    <a href="/components" class="card card--3-col">
+      <i class="fas fa-photo-video card__img"></i>
+      <div class="card__container">
+        <h2>Components</h2>
+        <p>Try payment components that requires no coding to use.</p>
+      </div>
+    </a>
+
+    <a href="/sign-up" class="card card--3-col">
+      <i class="far fa-edit card__img"></i>
+      <div class="card__container">
+        <h2>Sign up</h2>
+        <p>Sign up and start using the API with your own credentials.</p>
+      </div>
+    </a>
+
+  </div>
+
+  {{ content }}
+
+</main>
+
+</body>
+</html>

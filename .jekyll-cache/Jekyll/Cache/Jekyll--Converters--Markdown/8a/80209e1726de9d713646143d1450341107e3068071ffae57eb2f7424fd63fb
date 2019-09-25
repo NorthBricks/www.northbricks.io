@@ -1,0 +1,19 @@
+I",<p>To be able to connect to the API you need to get an access token. After that you create a request header with the name <code class="highlighter-rouge">Authorization</code> and value <code class="highlighter-rouge">Bearer [access token]</code>.</p>
+
+<p>Get an access token with <a href="https://www.getpostman.com/">Postman</a>:</p>
+<ol>
+  <li>Select authorization type <code class="highlighter-rouge">Oauth2</code>.</li>
+  <li>Select add authorization data to <code class="highlighter-rouge">Request headers</code>.</li>
+  <li>Click <em>Get New Access Token</em>.</li>
+  <li>Set <em>Grant Type</em> <code class="highlighter-rouge">Authorization Code</code>.</li>
+  <li>Set <em>Callback URL</em> <code class="highlighter-rouge">https://www.getpostman.com/oauth2/callback</code>.</li>
+  <li>Set <em>Auth URL</em> <code class="highlighter-rouge">https://api.northbricks.io/oauth/authorize</code>.</li>
+  <li>Set <em>Access Token URL</em> <code class="highlighter-rouge">https://api.northbricks.io/oauth/token</code>.</li>
+  <li>Set <em>Client ID</em> to your Client ID.</li>
+  <li>Set <em>Client Secret</em> to your Client Secret.</li>
+  <li>Set <em>scope</em> to <code class="highlighter-rouge">read</code> (scopes are not fully implemented yet).</li>
+  <li>Set <em>Client Authentication</em> <code class="highlighter-rouge">Send as Basic Auth header</code>.</li>
+  <li>Click <em>Request token</em> and login with a user that you created with <a href="https://api.northbricks.io/signup">https://api.northbricks.io/signup</a>.</li>
+  <li>You can now start using the api. Try to make a <code class="highlighter-rouge">GET</code> request to <a href="https://api.northbricks.io/api/v1/me/banks">https://api.northbricks.io/api/v1/me/banks</a> with the aquired token in a request header. It should return an empty array of banks.</li>
+</ol>
+:ET

@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  title: Northbricks Bank API
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: https://api.northbricks.io/api/v1
+    description: Production
+tags:
+- name: Banks
+  description: Bank operations
+paths:
+  /banks:
+    get:
+      tags:
+      - Banks
+      summary: Get all banks
+      description: Returns available banks
+      responses:
+        200:
+          description: Available banks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  banks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Bank"
+
+  /banks/{bic}:
+    get:
+      tags:
+      - Banks
+      summary: Get bank
+      description: Returns bank
+      parameters:
+        - name: bic
+          in: path
+          required: true
+          description: BIC of the bank to get.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Bank
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Bank"
+        400:
+          description: Invalid BIC
+        404:
+          description: Bank not found
+
+  /me/banks:
+    get:
+      tags:
+      - Banks
+      summary: Get all banks for current user
+      description: Returns current user banks
+      responses:
+        200:
+          description: Current user banks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  banks:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Bank"
+        401:
+          description: Wrong credentials
+      security:
+        - OAuth2:
+          - read
+    post:
+      tags:
+      - Banks
+      summary: Add bank to current user
+      description: Adds the bank to current user
+      requestBody:
+        description: Bank to add.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bic:
+                  type: string
+      responses:
+        201:
+          description: Bank added to user
+          headers:
+            Location:
+              description: Location of the added bank
+              schema:
+                type: string
+        400:
+          description: Invalid request
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+        409:
+          description: Current user already has the bank
+      security:
+        - OAuth2:
+          - read
+
+  /me/banks/{bic}:
+    get:
+      tags:
+      - Banks
+      summary: Get current user bank
+      description: Returns current user bank
+      parameters:
+        - name: bic
+          in: path
+          required: true
+          description: BIC of the bank to get.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Current user bank
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Bank"
+        400:
+          description: Invalid BIC
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - read
+    delete:
+      tags:
+      - Banks
+      summary: Remove bank from current user
+      description: Removes the bank from current user
+      parameters:
+        - name: bic
+          in: path
+          required: true
+          description: BIC of the bank to delete.
+          schema:
+            type: string
+      responses:
+        204:
+          description: Bank removed from user
+        400:
+          description: Invalid BIC
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - read
+
+components:
+  schemas:
+    Bank:
+      type: object
+      properties:
+        bic:
+          type: string
+        shortName:
+          type: string
+        fullName:
+          type: string
+        country:
+          type: string
+        logo:
+          type: string
+        website:
+          type: string
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: This API uses OAuth 2 with the authorization code flow.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.northbricks.io/oauth/authorize
+          tokenUrl: https://api.northbricks.io/oauth/token
+          scopes:
+            read: Grants read access

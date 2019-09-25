@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Authentication | Northbricks API</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Authentication" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications." />
+<meta property="og:description" content="Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications." />
+<link rel="canonical" href="http://localhost:4000/authentication/" />
+<meta property="og:url" content="http://localhost:4000/authentication/" />
+<meta property="og:site_name" content="Northbricks API" />
+<script type="application/ld+json">
+{"headline":"Authentication","@type":"WebPage","url":"http://localhost:4000/authentication/","description":"Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<script src="/assets/rapidoc-min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
+    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Northbricks API" /></head><body><header class="header">
+    <a class="header__logo" rel="Nortbricks" href="/">
+        <img height="50vh" width="50vh" src="/assets/northbricks-logo.png" alt="Northbricks">
+    </a><input type="checkbox" id="menu-toggle" class="menu__checkbox" />
+    <label for="menu-toggle" class="menu__button fas"></label>
+    <nav class="menu">
+        <ul class="menu__list"><li class="menu__list-item"><a href="/apis/">APIs</a></li><li class="menu__list-item"><a href="/components/">Components</a></li><li class="menu__list-item"><a href="/authentication/">Authentication</a></li><li class="menu__list-item"><a href="/guides/">Guides</a></li><li class="menu__list-item"><a href="/sign-up/">Sign up</a></li></ul>
+    </nav>
+<!-- 
+    <nav class="header__nav">
+        <ul><li class="header__nav-item"><a class="page-link" href="/apis/">APIs</a></li><li class="header__nav-item"><a class="page-link" href="/components/">Components</a></li><li class="header__nav-item"><a class="page-link" href="/authentication/">Authentication</a></li><li class="header__nav-item"><a class="page-link" href="/guides/">Guides</a></li><li class="header__nav-item"><a class="page-link" href="/sign-up/">Sign up</a></li></ul>
+    </nav> --></header><main class="content" aria-label="Content">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Authentication</h1>
+  </header>
+
+  <div class="post-content">
+    <p>To be able to connect to the API you need to get an access token. After that you create a request header with the name <code class="highlighter-rouge">Authorization</code> and value <code class="highlighter-rouge">Bearer [access token]</code>.</p>
+
+<p>Get an access token with <a href="https://www.getpostman.com/">Postman</a>:</p>
+<ol>
+  <li>Select authorization type <code class="highlighter-rouge">Oauth2</code>.</li>
+  <li>Select add authorization data to <code class="highlighter-rouge">Request headers</code>.</li>
+  <li>Click <em>Get New Access Token</em>.</li>
+  <li>Set <em>Grant Type</em> <code class="highlighter-rouge">Authorization Code</code>.</li>
+  <li>Set <em>Callback URL</em> <code class="highlighter-rouge">https://www.getpostman.com/oauth2/callback</code>.</li>
+  <li>Set <em>Auth URL</em> <code class="highlighter-rouge">https://api.northbricks.io/oauth/authorize</code>.</li>
+  <li>Set <em>Access Token URL</em> <code class="highlighter-rouge">https://api.northbricks.io/oauth/token</code>.</li>
+  <li>Set <em>Client ID</em> to your Client ID.</li>
+  <li>Set <em>Client Secret</em> to your Client Secret.</li>
+  <li>Set <em>scope</em> to <code class="highlighter-rouge">read</code> (scopes are not fully implemented yet).</li>
+  <li>Set <em>Client Authentication</em> <code class="highlighter-rouge">Send as Basic Auth header</code>.</li>
+  <li>Click <em>Request token</em> and login with a user that you created with <a href="https://api.northbricks.io/signup">https://api.northbricks.io/signup</a>.</li>
+  <li>You can now start using the api. Try to make a <code class="highlighter-rouge">GET</code> request to <a href="https://api.northbricks.io/api/v1/me/banks">https://api.northbricks.io/api/v1/me/banks</a> with the aquired token in a request header. It should return an empty array of banks.</li>
+</ol>
+
+  </div>
+
+</article>
+
+    </main><footer class="footer">
+</footer></body>
+
+</html>

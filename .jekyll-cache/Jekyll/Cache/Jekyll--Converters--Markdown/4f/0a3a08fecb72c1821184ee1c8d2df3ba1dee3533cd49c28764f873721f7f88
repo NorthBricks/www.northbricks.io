@@ -1,0 +1,14 @@
+I"ð<p>See how you can use Northbricks Components in your business. Theses are wasy to use sollutions when you donâ€™t want to use Northbricks API.</p>
+
+<h2 id="payment-component">Payment component</h2>
+
+<p>The payment component is used when you want to provide a payment alternative where your customer pays from their bank account.</p>
+
+<p>You need to ask for <em>Payment Provider ID</em> from Northbricks. Send an email to <a href="mailto:info@northbricks.com?subject=Payment%20component&amp;body=Hi,%0A%0AI%20like%20to%20try%20the%20Northbricks%20Payment%20Component.%0A%0AMy%20name:%20%0ACompany:%20">info@northbricks.com</a> for more information.</p>
+
+<h3 id="payment-component-usage">Payment component usage</h3>
+
+<p>Add a link to <a href="https://api.northbricks.io/payment-web?pid=your-payment-provider-id">https://api.northbricks.io/payment-web?pid=your-payment-provider-id</a>. This link will let your customer make the payment.</p>
+
+<p><a href="https://api.northbricks.io/demos/payment">Demo</a></p>
+:ET

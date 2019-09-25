@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: Northbricks Bank API
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: https://api.northbricks.io/api/v1
+    description: Production
+tags:
+- name: Bank-auth
+  description: Bank operations
+paths:
+  /me/banks/{bic}/auth:
+    get:
+      tags:
+      - Bank-auth
+      summary: Authenticate to bank
+      description: Open this URL in a browser. User authenticates and gives consent to Northbricks to access their assets.
+      parameters:
+        - name: bic
+          in: path
+          required: true
+          description: BIC of the bank to get.
+          schema:
+            type: string
+        - name: access_token
+          in: query
+          required: true
+          description: Access token to Northbricks.
+          schema:
+            type: string
+      responses:
+        200:
+          description: Authorization successful
+        401:
+          description: Wrong credentials
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - read
+
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: This API uses OAuth 2 with the authorization code flow.
+      flow:
+        authorizationCode:
+          authorizationUrl: https://api.northbricks.io/oauth/authorize
+          tokenUrl: https://api.northbricks.io/oauth/token
+          scopes:
+            read: Grants read access
+
+      security:
+        - OAuth2:
+          - read

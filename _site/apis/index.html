@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>APIs | Northbricks API</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="APIs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications." />
+<meta property="og:description" content="Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications." />
+<link rel="canonical" href="http://localhost:4000/apis/" />
+<meta property="og:url" content="http://localhost:4000/apis/" />
+<meta property="og:site_name" content="Northbricks API" />
+<script type="application/ld+json">
+{"headline":"APIs","@type":"WebPage","url":"http://localhost:4000/apis/","description":"Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<script src="/assets/rapidoc-min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap">
+    <link href="/assets/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Northbricks API" /></head><body><header class="header">
+    <a class="header__logo" rel="Nortbricks" href="/">
+        <img height="50vh" width="50vh" src="/assets/northbricks-logo.png" alt="Northbricks">
+    </a><input type="checkbox" id="menu-toggle" class="menu__checkbox" />
+    <label for="menu-toggle" class="menu__button fas"></label>
+    <nav class="menu">
+        <ul class="menu__list"><li class="menu__list-item"><a href="/apis/">APIs</a></li><li class="menu__list-item"><a href="/components/">Components</a></li><li class="menu__list-item"><a href="/authentication/">Authentication</a></li><li class="menu__list-item"><a href="/guides/">Guides</a></li><li class="menu__list-item"><a href="/sign-up/">Sign up</a></li></ul>
+    </nav>
+<!-- 
+    <nav class="header__nav">
+        <ul><li class="header__nav-item"><a class="page-link" href="/apis/">APIs</a></li><li class="header__nav-item"><a class="page-link" href="/components/">Components</a></li><li class="header__nav-item"><a class="page-link" href="/authentication/">Authentication</a></li><li class="header__nav-item"><a class="page-link" href="/guides/">Guides</a></li><li class="header__nav-item"><a class="page-link" href="/sign-up/">Sign up</a></li></ul>
+    </nav> --></header><main class="content" aria-label="Content">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">APIs</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Based on simple REST principles, the Northbricks API endpoints return JSON data about banks, bank accounts, and transactions.</p>
+
+<h2 id="postman">Postman</h2>
+
+<p>You can use out Postman test collection to test the Northbricks API. It includes HTTP requests with sample headers and test data.</p>
+
+<p>Postman is a free REST test tool, you can download if from here. Save the content of the link below as a .json file and then import it in the tool as a test collection.</p>
+
+<p><a href="/assets/northbricks-api.postman_collection.json">Download postman collection</a></p>
+
+<h2 id="api-reference">API Reference</h2>
+
+<p>Most request requires an access token. Just click the <em>Set</em>-button to try out the API. Or input your own access token that you get when <a href="/authentication">authenticating to Northbricks API</a>.</p>
+
+<script>
+function setApiKey(){
+    const docEls = document.getElementsByTagName('rapi-doc')
+    const keyInputEl = document.getElementById('access-token-input');
+
+    for (i = 0; i < docEls.length; i++) {
+        docEls[i].setAttribute('api-key-name','Authorization');
+        docEls[i].setAttribute('api-key-location','header');
+        docEls[i].setAttribute('api-key-value','Bearer '+keyInputEl.value);
+    }
+}
+</script>
+
+<p><label for="access-token-input">Access Token</label>
+<input class="__form-input" id="access-token-input" type="text" placeholder="Access token" value="f230ded8-5afe-4e40-ab7c-cdf301e8fed5" spellcheck="false" />
+<button class="btn" onclick="setApiKey()">Set</button></p>
+
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/bank-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/bank-auth-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/account-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/transaction-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/payment-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+<rapi-doc allow-authentication="false" show-header="false" show-info="false" show-server-select="false" spec-url="/assets/api-spec/user-api.yaml" regular-font="'Noto Sans',sans-serif" mono-font="'Roboto Mono',monospace"></rapi-doc>
+
+  </div>
+
+</article>
+
+    </main><footer class="footer">
+</footer></body>
+
+</html>

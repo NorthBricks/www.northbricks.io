@@ -1,0 +1,83 @@
+.menu {
+    &__list {
+        margin: 0;
+    }
+    &__list-item {
+        display: inline;
+        padding: 0 14px;
+        font-family: $heading-font-family;
+        font-weight: $heading-font-weight;
+        a {
+            color: #fff;
+            text-decoration: none;
+            &:hover {
+                color: $grey-color-light;
+            }
+        }
+    }
+    &__checkbox {
+        display: none;
+    }
+}
+
+@include media-query($on-laptop) {
+    .menu {
+        margin-left: -10px;
+        margin-top: -10px;
+        height: 100vh;
+        width: 100vw;
+        background: $background-color;
+        z-index: 2;
+        visibility: hidden;
+        position: fixed;
+        &.active {
+            visibility: visible;
+        }
+        &__list {
+            text-align: left;
+            height: 100vh;
+            padding-left: 0;
+            margin: 75px 0 0 0;
+            list-style-type: none;
+        }
+        &__list-item {
+            display: block;
+            padding: 1rem 0;
+            border-bottom: 1px solid #000;
+            margin: 0 1rem;
+            font-family: $base-font-family;
+            font-weight: $base-font-weight;
+            &:first-child {
+                border-top: 1px solid #000;
+            }
+            a {
+                color: $text-color;
+                text-decoration: none;
+                font-size: 1.5rem;
+                display: block;
+            }
+        }
+        &__button {
+            font-size: 40px;
+            color: #fff;
+            position: absolute;
+            right: 40px;
+            top: 13px;
+            z-index: 5;
+            cursor: pointer;
+            user-select: none;
+            &:before {
+                content: "\f0c9";
+            }
+        }
+    }
+    input[type=checkbox]:checked {
+        ~ .menu {
+            visibility: visible;
+            &__button:before {
+                content: "\f00d";
+                color: $text-color;
+            }
+        }
+    }
+}

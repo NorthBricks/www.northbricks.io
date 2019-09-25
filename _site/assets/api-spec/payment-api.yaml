@@ -1,0 +1,254 @@
+openapi: 3.0.0
+info:
+  title: Northbricks Paymentn API
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: https://api.northbricks.io/api/v1
+    description: Production
+tags:
+- name: Payments
+  description: Payment operations
+paths:
+
+  /banks/{bic}/payments:
+    get:
+      tags:
+      - Payments
+      summary: Get all payments
+      description: Returns all payments for the user
+      parameters:
+        - name: bic
+          in: path
+          description: BIC of bank
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payments:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Payment"
+        400:
+          description: Invalid input
+        401:
+          description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Bank not found 
+      security:
+        - OAuth2:
+          - "payment:read"
+
+    post:
+      tags:
+      - Payments
+      summary: Initiate payment
+      description: Initiates a payment
+      parameters:
+        - name: bic
+          in: path
+          description: BIC of bank
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Bank to make the payment from
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                creditorAccount:
+                  type: object
+                  description: Creditor of the payment
+                  properties:
+                    type:
+                      type: string
+                      description: ACCOUNT_ID, IBAN, PGNR, BGNR
+                    account:
+                      type: string
+                      description: Account number
+                    message:
+                      type: string
+                      description: Message for the creditor to appear on their transaction
+                debtorAccount:
+                  type: object
+                  description: Debtor of the payment
+                  properties:
+                    type:
+                      type: string
+                      description: ACCOUNT_ID, IBAN, PGNR, BGNR
+                    account:
+                      type: string
+                      description: Account number
+                    message:
+                      type: string
+                      description: Message for the debtor to appear on their transaction
+                amount:
+                  type: object
+                  properties:
+                    value:
+                      type: number
+                      format: double
+                      description: Monetary amount of the payment
+                    currency:
+                      type: string
+                      description: Currency code according to ISO 4217
+      responses:
+        201:
+          description: Payment initialized
+          headers:
+            Location:
+              description: Location of the initialized payment
+              schema:
+                type: string
+        400:
+          description: Invalid request
+        401:
+          description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Bank not found
+      security:
+        - OAuth2:
+          - "payment:write"
+
+  /banks/{bic}/payments/{paymentId}:
+    get:
+      tags:
+      - Payments
+      summary: Get payment
+      description: Returns all information about a payment
+      parameters:
+        - name: bic
+          in: path
+          description: BIC of bank
+          required: true
+          schema:
+            type: string
+        - name: paymentId
+          in: path
+          description: ID of payment
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        400:
+          description: Invalid input
+        401:
+          description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Payment not found 
+      security:
+        - OAuth2:
+          - "payment:read"
+
+    put:
+      tags:
+      - Payments
+      summary: Confirm payment
+      description: Confirm a previously initialized payment
+      parameters:
+        - name: bic
+          in: path
+          description: BIC of bank
+          required: true
+          schema:
+            type: string
+        - name: paymentId
+          in: path
+          description: ID of payment
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Successful operation
+        400:
+          description: Invalid input
+        401:
+          description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Payment not found 
+      security:
+        - OAuth2:
+          - "payment:write"
+
+components:
+  schemas:
+    Payment:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique payment identifier for payment
+        status:
+          type: string
+          description: PAYMENT_STATUS_NOT_PROVIDED, PROCESSING, PENDING_CONFIRMATION, PENDING_USER_APPROVAL, ON_HOLD, CONFIRMED, REJECTED, PAID, INSUFFICIENT_FUNDS, LIMIT_EXCEEDED, USER_APPROVAL_FAILED, USER_APPROVAL_TIMEOUT, USER_APPROVAL_CANCELLED
+        creditorAccount:
+          type: object
+          description: Creditor of the payment
+          properties:
+            type:
+              type: string
+              description: ACCOUNT_ID, IBAN, PGNR, BGNR
+            account:
+              type: string
+              description: Account number
+            message:
+              type: string
+              description: Message for the creditor to appear on their transaction
+        debtorAccount:
+          type: object
+          description: Debtor of the payment
+          properties:
+            type:
+              type: string
+              description: ACCOUNT_ID, IBAN, PGNR, BGNR
+            account:
+              type: string
+              description: Account number
+            message:
+              type: string
+              description: Message for the debtor to appear on their transaction
+        amount:
+          type: object
+          properties:
+            value:
+              type: number
+              format: double
+              description: Monetary amount of the payment
+            currency:
+              type: string
+              description: Currency code according to ISO 4217
+
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      description: This API uses OAuth 2 with the authorization code flow.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.northbricks.io/oauth/authorize
+          tokenUrl: https://api.northbricks.io/oauth/token
+          scopes:
+            "payment:read": Grants read access
+            "payment:write": Grants write access
