@@ -23,7 +23,7 @@ email: info@northbricks.com
 description: >- # this means to ignore newlines until "baseurl:"
   Open banking, PSD2, meet code. Powerful APIs, SDKs and widgets for simple and advanced applications.
 baseurl: ""
-url: "https://beta.northbricks.io"
+url: "https://www.northbricks.io"
 twitter_username: Northbricks
 github_username: NorthBricks
 
