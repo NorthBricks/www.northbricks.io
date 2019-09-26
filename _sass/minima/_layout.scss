@@ -1,13 +1,3 @@
-
-@include media-query($on-laptop) {
-    .discover__banner-text {
-        font-size: 1rem;
-        h1 {
-            font-size: 2rem;
-        }
-    }
-}
-
 .header {
     height: 50px;
     line-height: 50px;
@@ -103,6 +93,14 @@
 /**
  * Start page
  */
+@include media-query($on-laptop) {
+    .discover__banner-text {
+        font-size: 1rem;
+        h1 {
+            font-size: 2rem;
+        }
+    }
+}
 a.discover__banner-link {
     font-weight: 400;
     font-size: 16px;
@@ -119,10 +117,8 @@ a.discover__banner-link {
 .discover {
     &__banner {
         width: 100%;
-        height: 35vh;
-        padding-top: 150px;
+        padding-top: 120px;
         background: linear-gradient(45deg,rgb(40, 40, 70), #00A4EE), center top no-repeat;
-        background-size: cover;
         color: #fff;
         display: inline-table;
         ~ .content {
@@ -130,10 +126,6 @@ a.discover__banner-link {
         }
     }
     &__banner-text {
-        position: absolute;
-        left: 0;
-        top: 120px;
-        right: 0;
         height: calc(50% - 60px);
         display: flex;
         align-items: center;
