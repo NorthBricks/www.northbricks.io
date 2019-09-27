@@ -40,10 +40,12 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/Transaction"
-        400:
-          description: Bank account not found on user
         401:
           description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Bank account not found on user
       security:
         - OAuth2:
           - "transaction:read"
@@ -80,10 +82,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Transaction"
-        400:
-          description: Bank account not found on user
         401:
           description: Wrong credentials
+        403:
+          description: Need to authenticate with the bank
+        404:
+          description: Bank account transaction not found on user
       security:
         - OAuth2:
           - "transaction:read"
