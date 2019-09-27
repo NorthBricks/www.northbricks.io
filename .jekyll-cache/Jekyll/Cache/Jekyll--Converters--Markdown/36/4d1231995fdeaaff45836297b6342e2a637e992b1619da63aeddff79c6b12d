@@ -1,7 +1,0 @@
-I"š<p>Learn how to add a bank to a user and let the user authenticate with the bank.
-<!--more--></p>
-
-<p>First add the bank to the user with <a href="/#post-me-banks">POST /me/banks</a>.</p>
-
-<p>The user needs to give Northbricks permissions to access their assets. Open <a href="/#get-me-banks-bankid-auth">/me/banks/{bankId}/auth</a> in a browser and let the user login and give permissions to Northbricks.</p>
-:ET
