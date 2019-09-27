@@ -1,5 +1,5 @@
 {
-    "short_name": "Developer",
+    "short_name": "Northbricks Docs",
     "name": "Northbricks Developer Portal",
     "icons": [{
         "src": "/assets/icon-192.png",
@@ -12,6 +12,6 @@
     }],
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "#ffffff",
+    "theme_color": "#2E3336",
     "background_color": "#ffffff"
 }
