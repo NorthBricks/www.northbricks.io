@@ -120,14 +120,12 @@ a.discover__banner-link {
         padding-top: 120px;
         background: linear-gradient(45deg,rgb(40, 40, 70), #00A4EE), center top no-repeat;
         color: #fff;
-        display: inline-table;
         ~ .content {
             padding-top: 40px;
         }
     }
     &__banner-text {
         height: calc(50% - 60px);
-        display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
