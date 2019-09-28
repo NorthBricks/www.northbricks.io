@@ -89,6 +89,13 @@
     border-radius: 2px;
     outline: 0;
     white-space: nowrap;
+    cursor: pointer;
+    &:active {
+        background-color: #ffffff;
+        color: rgb(86, 86, 86);
+        border-color: rgb(86, 86, 86);
+        opacity: 0.4;
+    }
 }
 
 /**
