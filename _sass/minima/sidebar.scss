@@ -41,5 +41,8 @@
 @include media-query($on-laptop) {
     .sidebar {
         display: none;
+        ~ .post {
+            margin-left: auto;
+        }
     }
 }
