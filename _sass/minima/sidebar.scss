@@ -1,0 +1,45 @@
+.sidebar {
+    height: 100%;
+    width: 200px;
+    background: #2E3336;
+    position: fixed;
+    padding-top: 80px;
+    &__item {
+        display: block;
+        padding: 10px 10px;
+        color: #fff;
+        border-bottom: 2px solid #42474a;
+        &:hover {
+            background: #42474a;
+            text-decoration: none;
+        }
+        &:active {
+            background: #292d30;
+        }
+        &:visited {
+            color: #fff;
+        }
+        &--level2 {
+            background: #292d30;
+            padding-left: 20px;
+            &:before {
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                content: '\f105';
+                padding-right: 5px;
+            }
+        }
+    }
+    ~ .post {
+        margin-left: 220px;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+}
+@include media-query($on-laptop) {
+    .sidebar {
+        display: none;
+    }
+}

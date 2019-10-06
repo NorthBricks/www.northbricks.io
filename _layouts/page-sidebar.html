@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="sidebar">
+  <ul>
+    <li><a href="#postman" class="sidebar__item">Postman</a></li>
+    <li><a href="#api-reference" class="sidebar__item">API Reference</a></li>
+    <li><a href="#rapidoc-banks" class="sidebar__item sidebar__item--level2">Banks</a></li>
+    <li><a href="#rapidoc-bank-auth" class="sidebar__item sidebar__item--level2">Bank Auth</a></li>
+    <li><a href="#rapidoc-accounts" class="sidebar__item sidebar__item--level2">Accounts</a></li>
+    <li><a href="#rapidoc-transactions" class="sidebar__item sidebar__item--level2">Transactions</a></li>
+    <li><a href="#rapidoc-payments" class="sidebar__item sidebar__item--level2">Payments</a></li>
+    <li><a href="#rapidoc-user" class="sidebar__item sidebar__item--level2">User</a></li>
+  </ul>
+</div>
+
+<article class="post">
+
+  <header class="post__header">
+    <h1 class="post__title">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post__content">
+    {{ content }}
+  </div>
+
+</article>
